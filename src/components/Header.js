@@ -1,4 +1,6 @@
 import {Navbar, Container, NavDropdown, Nav} from 'react-bootstrap'
+import './css/Header.css';
+import logo from '../Images/Logo.png'
 import {useNavigate} from 'react-router'
 
 function Header() {
@@ -10,9 +12,10 @@ function Header() {
     }
     return (
         <div>
-            <Navbar bg="dark" variant="dark">
-                <Container>
-                <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <body>
+            <Navbar className='navbar' >
+                <Container >
+                <Navbar.Brand className='navbar' href="/"><img src= {logo} className='logo'></img></Navbar.Brand>
                 <Nav className="me-auto">
                 {
                     localStorage.getItem('userInfo') ?
@@ -23,8 +26,8 @@ function Header() {
                     </>
                     :
                     <>
-                        <Nav.Link href="/signIn">Sign in</Nav.Link>
-                        <Nav.Link href="/signUp">Sign up</Nav.Link>
+                        <Nav.Link className='SignIn' href="/signIn">Sign in</Nav.Link>
+                        <Nav.Link className='SignUp' href="/signUp">Sign up</Nav.Link>
                     </>
                 }
                 
@@ -32,6 +35,8 @@ function Header() {
                 </Container>
             </Navbar>
             <br />
+            </body>
+            
         </div>
     )
 }

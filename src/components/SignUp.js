@@ -30,7 +30,7 @@ function SignUp(){
 
     return (
         <div>
-           <Header/>
+          
             <div>
                 <div className='col-sm-6 offset-sm-3 text-center'>
                     <h1>Login Page</h1>

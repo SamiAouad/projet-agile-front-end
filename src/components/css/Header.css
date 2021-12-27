@@ -1,0 +1,45 @@
+.logo{
+    background-color: rgba(0, 0, 0, 0.384);
+    height: 60px;
+}
+
+
+body{
+    background: url(src/Background1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.navbar{
+overflow: hidden;
+display: flex;
+justify-content: space-around;
+align-items: center;
+min-height: 8vh;
+color: white;
+background-color: rgba(0, 0, 0, 0.562);
+}
+.SignIn{
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    left: 1087px;
+    top: 20px;
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+    background: #FFFFFF;
+    border-radius: 20px;
+            }
+.SignUp{
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    left: 1290px;
+    top: 20px;
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    }

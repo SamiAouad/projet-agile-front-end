@@ -1,0 +1,55 @@
+
+.Titre{
+    position: absolute;
+    left: 750px;
+    top: 9cm;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 56px;
+    text-align: left;
+    color: white;
+}
+h2{
+    position: absolute;
+    left: 750px;
+    top: 102mm;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 46px;
+    color:white;
+}
+h3{
+    position: absolute;
+    left: 750px;
+    top: 113mm;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 20px;
+    color: white;
+}
+
+.Pict1{
+position: absolute;
+width: 410px;
+height: 616px;
+left: 57px;
+top: 105px;
+border-radius: 63px;
+}
+
+.Pict2{
+position: absolute;
+width: 310px;
+height: 516px;
+left: 350px;
+top: 170px;
+border-radius: 63px;
+}

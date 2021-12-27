@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useNavigate} from 'react-router';
 import axios from 'axios';
-import Header from "./Header";
+
 
 const api = axios.create({
     baseURL: `http://localhost:5000/user`
@@ -30,7 +30,7 @@ function SignIn(){
 
     return(
         <div>
-           <Header/>
+           
             <div>
                 <div className='col-sm-6 offset-sm-3 text-center'>
                     <h1>Login Page</h1>
