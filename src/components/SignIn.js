@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {useNavigate} from 'react-router';
+import './css/SignUp.css';
 import axios from 'axios';
 
 
@@ -30,9 +31,8 @@ function SignIn(){
 
     return(
         <div>
-           
             <div>
-                <div className='col-sm-6 offset-sm-3 text-center'>
+                <div className='col-sm-6 offset-sm-3 text-center form-signin'>
                     <h1>Login Page</h1>
                     <input type='email' value={username} onChange={e => setUsername(e.target.value)} placeholder='username' className='form-control' />
                     <br />
