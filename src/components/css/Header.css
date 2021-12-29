@@ -1,0 +1,23 @@
+.logo{
+    height: 45px;
+}
+
+
+
+.navbar{
+
+margin-left: auto;
+align-items: center;
+min-height: 8vh;
+background-color: rgba(3, 3, 3, 0.397);
+}
+.nav-link{
+    top: 3px;
+    margin-left: 1cm;
+    color:black ;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.404);
+    border-radius: 30px;
+}

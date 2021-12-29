@@ -1,0 +1,46 @@
+
+
+
+.jumbotron{
+    top: 5cm;
+}
+
+
+.logo{
+    background: transparent;
+    border: none;
+    width: auto;
+    height: 50mm;
+}
+.home__container {
+   
+    padding-left: 5mm;
+    text-align: start;
+    height: calc(100vh - 3rem);
+    align-content: center;
+    row-gap: 1rem;
+    color: white;
+    
+   
+  }
+.home__data-subtitle, 
+.home__data-title, 
+.home__social-link, 
+.home__info {
+  color: black;
+}
+.home__data-subtitle {
+    display: block;
+    font-weight: 600;
+    margin-bottom: .75rem;
+    color: black;
+  }
+  .home__data-title {
+    font-size: 4rem;
+    font-weight:500;
+    margin-bottom: 2.5rem;
+    color: black;
+  }
+ 
+  
+ 

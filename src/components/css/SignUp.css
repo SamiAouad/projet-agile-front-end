@@ -1,0 +1,32 @@
+.form-control{
+    color: white;
+    display: inline;
+   margin-top: 1mm;
+    width: 80mm;
+    padding-bottom: 10px;
+    height: auto;
+    background: transparent;
+    border-radius: 5px;
+    border: 1mm solid white;
+}
+.form-signin{
+    display: block;
+    margin-top: 30mm;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #11203175;
+    background-size: cover;
+    border-radius: 15px;
+    height: auto;
+    width: 100mm;
+}
+.btn{
+    margin-top: 2mm;
+    margin-bottom: 2mm;
+    background-color: white;
+    color: black;
+    width: 70mm;
+}
+h1{
+    margin-top: -6mm;
+}
