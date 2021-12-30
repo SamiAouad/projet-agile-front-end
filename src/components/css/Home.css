@@ -1,12 +1,12 @@
-
-    body{
-        background: url(./src/Background2.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 50vh;
-        top: 0;
-        left: 0;
-        width: 100%;
-        object-fit: cover;
-        object-position: 83%;
-}
+.design{
+    background: url(./src/Background2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 110vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    object-position: 83%;
+  }
+    

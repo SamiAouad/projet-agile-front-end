@@ -9,9 +9,9 @@ function Body() {
   
     return (
         <div >
-      <section>
+      <section >
          
-          <div className='container'> 
+          <div className='container '> 
           
                     {/* <div class="home__data">
                     <img src={logo} alt='' className=' logo float-right img-thumbnail'/>

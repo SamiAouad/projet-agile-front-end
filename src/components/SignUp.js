@@ -35,8 +35,8 @@ function SignUp(){
       
                 <div className='col-sm-2 offset-sm-5 '>
                    
-                <form class="form-signin text-light text-center">
-                <img class="mb-4" src={logo} alt="" width="72" height="72"/>
+                <form className="form-signin text-light text-center">
+                <img className="mb-4" src={logo} alt="" width="72" height="72"/>
                 <h1>Register</h1>
                     <input type='text' value={firstname} onChange={e => setFirstname(e.target.value)} placeholder='firstname' className='form-control' />
                     <br />

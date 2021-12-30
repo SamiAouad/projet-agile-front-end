@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {useNavigate} from 'react-router';
+import './css/SignUp.css'
 import axios from 'axios';
 import Header from "./Header";
 
@@ -28,8 +29,8 @@ function CreateGroupe() {
         <div>
            <Header/>
             <div>
-                <div className='col-sm-6 offset-sm-3 text-center'>
-                    <h1>Login Page</h1>
+                <div className='col-sm-6 offset-sm-3 text-center form-signin'>
+                    <h1>CREATE GROUP</h1>
                     <input type='text' value={title} onChange={e => settitle(e.target.value)} placeholder='title of the groupe' className='form-control' />
                     <br />
                     <textarea value={groupeDescription} onChange={e => setGroupeDescription(e.target.value)} placeholder='description' className='form-control' />

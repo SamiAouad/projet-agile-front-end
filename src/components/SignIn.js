@@ -24,13 +24,13 @@ function SignIn(){
             else{
                 localStorage.setItem('userInfo', JSON.stringify(res.data))
                 console.log(localStorage.getItem('userInfo'))
-                navigate('/')
+                navigate('/Home')
             }
         })
     }
 
     return(
-        <div>
+        <div >
             <div>
                 <div className='col-sm-6 offset-sm-3 text-center form-signin'>
                     <h1>Login Page</h1>

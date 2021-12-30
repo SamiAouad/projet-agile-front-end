@@ -1,19 +1,15 @@
 import React from "react";
 import Header from './Header'
-import Body from './Body'
+
 import './css/Home.css'
 import './css/Header.css';
 
-function Home() {
+function HomeAfterSignIn() {
     return (
-        <div className='design'>
-            
+        <div>
             <Header/>
-            <Body/>
-           
-           
         </div>
     )
 }
 
-export default Home;
+export default HomeAfterSignIn;
