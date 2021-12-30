@@ -4,13 +4,16 @@
 .jumbotron{
     top: 5cm;
 }
-
+ .text{
+   text-align: left;
+   background-color: rgba(0, 0, 0, 0.363);
+ }
 
 .logo{
     background: transparent;
     border: none;
     width: auto;
-    height: 50mm;
+    height: 45mm;
 }
 .home__container {
    
@@ -32,13 +35,13 @@
 .home__data-subtitle {
     display: block;
     font-weight: 600;
-    margin-bottom: .75rem;
+
     color: black;
   }
   .home__data-title {
     font-size: 4rem;
     font-weight:500;
-    margin-bottom: 2.5rem;
+    
     color: black;
   }
  

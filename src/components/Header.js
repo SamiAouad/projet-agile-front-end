@@ -16,7 +16,7 @@ function Header() {
             
             <Navbar >
                 <Container  >
-                <Navbar.Brand  href="/"><h1 className='text-light'>Viatores</h1></Navbar.Brand>
+                <Navbar.Brand  href="/"><h1 className=' title text-light'>Viatores</h1></Navbar.Brand>
                 <Nav >
                 {
                     localStorage.getItem('userInfo') ?

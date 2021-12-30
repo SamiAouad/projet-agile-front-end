@@ -11,13 +11,30 @@ function Body() {
         <div >
       <section>
          
-          <div className='home__container'> 
+          <div className='container'> 
           
-                    <div class="home__data">
+                    {/* <div class="home__data">
                     <img src={logo} alt='' className=' logo float-right img-thumbnail'/>
-                        <h1 class="home__data-title ">Explore The <br/> Best <b>Beautiful <br/> Continents</b></h1>
+                        <h1 class=" display-1 text-dark">Explore The Best <b>Beautiful <br/> Continents</b></h1>
+                        <h3>There are plenty of practical reasons <br/>why it’s helpful to have someone you know by your side whilst  <br/>you’re exploring the world, <br/>but there are also lots of ways that traveling together <br/> can build your friendship and make your bond even stronger.</h3>
+                    </div> */}
+                    <div className="row">
+                        <div className='col-sm-2'/>
+                        <div className='col-sm-8'>
+                            <div>
+                            <img src={logo} alt='' className=' logo float-right img-thumbnail'/>
+                            </div> 
+                            </div>
+                        <div className='col-sm-2'/>
                     </div>
-        </div>
+                    <div className="row">
+                        <div className='col-sm-8 align-self-start'>
+                            <h1 class=" display-1 text-light text">Explore The Best <b>Beautiful <br/> Continents</b></h1>
+                            <h3 className='text text-light'>There are plenty of practical reasons <br/>why it’s helpful to have someone you know by your side whilst  <br/>you’re exploring the world, <br/>but there are also lots of ways that traveling together <br/> can build your friendship and make your bond even stronger.</h3>
+                        </div>
+                        <div className='col-sm-4'/>
+                    </div>
+                </div>
      
       </section>
             </div>
