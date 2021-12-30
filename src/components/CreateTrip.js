@@ -10,7 +10,6 @@ const api = axios.create({
 
 function CreateTrip() {
     const navigate = useNavigate();
-    const [adminId, setadminId] = useState('');
     const [price, setprice] = useState('');
     const [dateStart, setdateStart] = useState('');
     const [dateEnd, setdateEnd] = useState('');
@@ -21,12 +20,14 @@ function CreateTrip() {
 
     const signUp = async () => {
 
-        let item = { adminId,price,dateStart, dateEnd, capacite, description}
-        api.post('/createVoyage/'+localStorage.getItem('user').id, item).then(res => {
+        let item = { price,dateStart, dateEnd, capacite, description}
+        let user = JSON.parse(localStorage.getItem('userInfo'))
+        api.post(`/createVoyage/${user.id}`, item).then(res => {
+            console.log(res.data)
             if (res.data == null)
                 console.log('creation de Voyage impossible')
             else
-                navigate('/HomeAfterSignIn')
+                navigate('/')
         })
     }
 
@@ -36,7 +37,6 @@ function CreateTrip() {
             <div>
                 <div className='col-sm-6 offset-sm-3 text-center form-signin'>
                     <h1>CREATE TRIP</h1>
-                    <input type='text' value={adminId} onChange={e => setadminId(e.target.value)} placeholder='Id admin' className='form-control' />
                     <br />
                     <input type='text' value={price} onChange={e => setprice(e.target.value)} placeholder='Price' className='form-control' />
                     <br />
