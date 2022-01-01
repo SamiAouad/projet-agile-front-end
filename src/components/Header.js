@@ -23,7 +23,7 @@ function Header() {
                         <Nav.Link href="#joinTrip">Join Trip</Nav.Link>
                         <Nav.Link href="/createGroupe">Create Group</Nav.Link>
                         <Nav.Link href="/createVoyage">Create Travel</Nav.Link>
-                        <Nav.Link href="#joinGroup">Join Group</Nav.Link>
+                        <Nav.Link href="/joinGroupe">Join Group</Nav.Link>
                         <Nav.Link onClick={logout}>Log out</Nav.Link>
                     </>
                     :
