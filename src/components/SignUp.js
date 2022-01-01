@@ -13,21 +13,15 @@ const api = axios.create({
 
 function SignUp(){
     const navigate = useNavigate();
-    // const [firstname, setFirstname] = useState('');
-    // const [lastname, setLastname] = useState('');
-    // const [username, setUsername] = useState('');
-    // const [mobile, setMobile] = useState('');
-    // const [email, setEmail] = useState('');
-    // const [passwordHash, setPasswordHash] = useState('');
-    // const [passwordconf, setPasswordconf] = useState('');
+    
     const validationSchema = yup.object({
-        firstname: yup.string().required(),
+        firstname: yup.string('firstname must be a string').required('firstname is required'),
         lastname: yup.string().required(),
         username: yup.string().required(),
         mobile: yup.string().max(10).min(10).required(),
         email: yup.string().email().required(),
         passwordHash: yup.string().required(),
-        passwordconf: yup.string().oneOf([yup.ref['passwordHash'], null], 'passwords do not match').required()
+        passwordconf: yup.string().oneOf([yup.ref('passwordHash'), null], 'passwords do not match').required()
     })
 
     const onSubmit = async () => {

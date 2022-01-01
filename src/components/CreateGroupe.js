@@ -5,15 +5,23 @@ import axios from 'axios';
 import Header from "./Header";
 import { ErrorMessage, Formik, useFormik } from "formik";
 import * as yup from 'yup';
+
+
 const api = axios.create({
     baseURL: `http://localhost:5000/groupe`
 })
 
 function CreateGroupe() {
     const navigate = useNavigate();
+    let [file, setFile] = useState();
 
     const onSubmit = async () => {
-        api.post('/createGroupe', formik.values).then(res => {
+        let item = new FormData()
+        item.append('title', formik.values.title)
+        item.append('groupeDescription', formik.values.groupeDescription)
+        item.append('file', file)
+        
+        api.post('/createGroupe', item).then(res => {
             if (res.data == null)
                 console.log('creation de groupe impossible')
             else
@@ -42,11 +50,12 @@ function CreateGroupe() {
                         <h1>CREATE GROUP</h1>
                         <form onSubmit={formik.handleSubmit}>
                             <input name="title" type='text' value={formik.values.title} onChange={formik.handleChange} placeholder='title of the groupe' className='form-control' />
-                            {formik.errors.title ? <div class='text-danger'>{formik.errors.title}</div> : null}
+                            {formik.errors.title ? <div className='text-danger'>{formik.errors.title}</div> : null}
                             <br />
                             <textarea name="groupeDescription" value={formik.values.groupeDescription} onChange={formik.handleChange} placeholder='description' className='form-control' />
-                            {formik.errors.groupeDescription ? <div class='text-danger'>{formik.errors.groupeDescription}</div> : null}
+                            {formik.errors.groupeDescription ? <div className='text-danger'>{formik.errors.groupeDescription}</div> : null}
                             <br />
+                            <input type='file' id='file' accept="jpg" onChange={e => setFile(e.target.files[0])}></input>
                             <button type="submit" className='btn btn-primary'>Sign up</button>
                         </form>
                     </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
+import { Image } from "react-bootstrap";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Button, Container, Row } from "react-bootstrap";
@@ -13,6 +14,7 @@ const api = axios.create({
 
 function GroupeList(){
     let [groupes, setGroupes] = useState([])
+    let [image, setImage] = useState()
 
     useEffect(() => {
         api.get('/getGroupes').then((fetchedData) => {
@@ -24,13 +26,11 @@ function GroupeList(){
         <div>
             {groupes.map(groupe => 
             {
-                console.log(groupe.title);
                 return(
                     <Container>
                         <div className="row">
                             <div className="col-4">
                             <Card>
-                                <Card.Img variant="top" src="../Images/Image1.png" />
                                 <Card.Body>
                                     <Card.Title>{groupe.title}</Card.Title>
                                     <Card.Text>{groupe.groupeDescription}</Card.Text>
