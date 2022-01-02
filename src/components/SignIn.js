@@ -28,7 +28,6 @@ function SignIn(){
             }
             else{
                 localStorage.setItem('userInfo', JSON.stringify(res.data))
-                console.log(localStorage.getItem('userInfo'))
                 navigate('/Home')
             }
         })

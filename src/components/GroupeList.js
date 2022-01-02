@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Button, Container, Row } from "react-bootstrap";
 import { Card } from "react-bootstrap";
-import { cancelDemande, checkMember, joinGroupe } from "./GroupeUtilities.js";
+import { CancelDemande, CheckMember } from "./GroupeUtilities.js";
 
 const api = axios.create({
     baseURL: `http://localhost:5000/`
@@ -16,6 +16,7 @@ function GroupeList(){
     let [loadingGroupes, setLoadingGroupes] = useState(true)
     let [loadingMemberships, setLoadingMemberships] = useState(true)
     let [loadingDemandes, setLoadingDemandes] = useState(true)
+    let [refresh, setRefresh] = useState(false)
     
     useEffect(function () {
             let user = JSON.parse(localStorage.getItem('userInfo'))
@@ -35,23 +36,27 @@ function GroupeList(){
 
             });
         }, [])
-
     
 
     if (loadingDemandes || loadingGroupes || loadingMemberships){
         return <div>Loading</div>
     }
 
+    let handleCancel = (userId, groupeId) => {
+        setRefresh(!refresh)
+        CancelDemande(userId, groupeId)
+    }
+
 
     function groupeButton(groupe){
         let user = JSON.parse(localStorage.getItem('userInfo'))
-        if (checkMember(groupe, memberships)){
+        if (memberships && CheckMember(groupe, memberships)){
             return <Button className="btn btn-primary" href={`/groupe/home/${groupe.id}`} >Acceder</Button>
         }
-        if (checkMember(groupe, demandes))
-            return <Button value={groupe.id} className="btn btn-primary" onClick={() => cancelDemande(user.id, groupe.id)}>Annuler</Button>
+        if (demandes && CheckMember(groupe, demandes))
+            return <Button value={groupe.id} className="btn btn-primary" onClick={() => {handleCancel(user.id, groupe.id)}}>Annuler</Button>
 
-        return <Button value={groupe.id} className="btn btn-primary" onClick={() => joinGroupe(user.id, groupe.id)}>Rejoindre</Button>
+        return <Button value={groupe.id} className="btn btn-primary" href={`/joinGroupe/${groupe.id}`}>Rejoindre</Button>
     }
 
 
@@ -60,6 +65,7 @@ function GroupeList(){
         <div>
             {groupes.map(groupe => 
             {
+                {console.log(refresh)}
                 return(
                     <Container key={groupe.id}>
                         <div className="row">

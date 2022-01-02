@@ -1,24 +1,30 @@
 import axios from "axios"
+import { Navigate, useNavigate } from "react-router"
 
 const api = axios.create({
-    baseURL: `http://localhost:5000/`
+    baseURL: `http://localhost:5000/groupe`
 })
 
-export let checkMember = (groupe, listes) => {
+
+
+
+export  function CheckMember(groupe, listes) {
     let test = false
     listes.map(element => {
         if(element.groupeId === groupe.id)
             test = true
-        console.log(element.groupeId, groupe.id, element.groupeId === groupe.id)
     })
-    if (test) return true;
-    else return false
+   
+    return test
 }
 
-export let cancelDemande = () => {
-    api.post('/')
+export function CancelDemande(userId, groupeId) {
+    api.delete(`/refuse/${userId}/${groupeId}`).then(res => {
+        if (res.data === true){
+            return true
+        }else{
+            return false
+        }
+    })
 }
 
-export let joinGroupe = () => {
-    console.log('join groupe')
-}
