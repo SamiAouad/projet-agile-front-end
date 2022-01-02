@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useNavigate} from 'react-router';
-import './css/SignUp.css'
+import '../css/SignUp.css'
 import axios from 'axios';
 import Header from "./Header";
 import { ErrorMessage, Formik, useFormik } from "formik";

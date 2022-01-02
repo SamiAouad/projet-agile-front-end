@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import {useNavigate} from 'react-router';
-import './css/SignUp.css'
+import '../css/SignUp.css'
 import axios from 'axios';
-import Header from "./Header";
+import Header from "../User/Header";
 
 const api = axios.create({
     baseURL: `http://localhost:5000/voyage`

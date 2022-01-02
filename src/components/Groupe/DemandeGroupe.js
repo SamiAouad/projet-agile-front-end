@@ -1,7 +1,7 @@
 import React from 'react'
 import {useNavigate} from 'react-router';
-import './css/SignUp.css'
-import Header from "./Header";
+import '../css/SignUp.css'
+import Header from "../User/Header";
 import { useFormik } from "formik";
 import * as yup from 'yup';
 import axios from 'axios';

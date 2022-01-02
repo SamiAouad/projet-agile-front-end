@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp'
-import Home from './components/Home';
-import HomeAfterSignIn from './components/HomeAfterSignIn';
+import SignIn from './components/User/SignIn';
+import SignUp from './components/User/SignUp'
+import Home from './components/User/Home';
+import HomeAfterSignIn from './components/User/HomeAfterSignIn';
 
-import CreateGroupe from './components/CreateGroupe';
+import CreateGroupe from './components/User/CreateGroupe';
 import './App.css';
-import CreateTrip from './components/CreateTrip';
-import GroupeHome from './components/GroupeHome';
-import GroupeList from './components/GroupeList';
-import DemandeGroupe from './components/DemandeGroupe';
+import CreateTrip from './components/Groupe/CreateTrip';
+import GroupeHome from './components/Groupe/GroupeHome';
+import GroupeList from './components/Groupe/GroupeList';
+import DemandeGroupe from './components/Groupe/DemandeGroupe';
 
 
 

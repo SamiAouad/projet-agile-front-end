@@ -1,5 +1,5 @@
 import {Navbar, Container, Nav} from 'react-bootstrap'
-import './css/Header.css';
+import '../css/Header.css';
 import {useNavigate} from 'react-router'
 
 function Header() {

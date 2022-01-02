@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Button, Container, Row } from "react-bootstrap";
 import { Card } from "react-bootstrap";
-import { CancelDemande, CheckMember } from "./GroupeUtilities.js";
+import { CancelDemande, CheckMember } from "./Utilities/GroupeUtilities.js";
 
 const api = axios.create({
     baseURL: `http://localhost:5000/`
