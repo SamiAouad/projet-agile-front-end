@@ -1,6 +1,6 @@
 import React from "react";
 import {useNavigate} from 'react-router';
-import './css/SignUp.css';
+import '../css/SignUp.css';
 import axios from 'axios';
 import * as yup from 'yup'
 import { useFormik } from "formik";
@@ -28,7 +28,6 @@ function SignIn(){
             }
             else{
                 localStorage.setItem('userInfo', JSON.stringify(res.data))
-                console.log(localStorage.getItem('userInfo'))
                 navigate('/Home')
             }
         })

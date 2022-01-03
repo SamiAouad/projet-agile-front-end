@@ -1,5 +1,5 @@
 import {Navbar, Container, Nav} from 'react-bootstrap'
-import './css/Header.css';
+import '../css/Header.css';
 import {useNavigate} from 'react-router'
 
 function Header() {
@@ -23,7 +23,7 @@ function Header() {
                         <Nav.Link href="#joinTrip">Join Trip</Nav.Link>
                         <Nav.Link href="/createGroupe">Create Group</Nav.Link>
                         <Nav.Link href="/createVoyage">Create Travel</Nav.Link>
-                        <Nav.Link href="/joinGroupe">Join Group</Nav.Link>
+                        <Nav.Link href="/listeGroupes">Join Group</Nav.Link>
                         <Nav.Link onClick={logout}>Log out</Nav.Link>
                     </>
                     :

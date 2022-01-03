@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import {useNavigate} from 'react-router';
 import axios from 'axios';
-import './css/SignUp.css';
-import logo from '../Images/Logo.png'
+import '../css/SignUp.css';
+import logo from '../../Images/Logo.png'
 import * as yup from 'yup'
 import { useFormik } from "formik";
 
