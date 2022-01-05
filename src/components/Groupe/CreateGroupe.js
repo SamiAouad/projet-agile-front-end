@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {useNavigate} from 'react-router';
 import '../css/SignUp.css'
 import axios from 'axios';
-import Header from "./Header";
+import Header from "../User/Header";
 import { ErrorMessage, Formik, useFormik } from "formik";
 import * as yup from 'yup';
 
@@ -20,8 +20,10 @@ function CreateGroupe() {
         item.append('title', formik.values.title)
         item.append('groupeDescription', formik.values.groupeDescription)
         item.append('file', file)
+
+        let user = JSON.parse(localStorage.getItem('userInfo'))
         
-        api.post('/createGroupe', item).then(res => {
+        api.post(`/createGroupe/${user.id}`, item).then(res => {
             if (res.data == null)
                 console.log('creation de groupe impossible')
             else

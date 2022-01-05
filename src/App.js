@@ -4,12 +4,13 @@ import SignUp from './components/User/SignUp'
 import Home from './components/User/Home';
 import HomeAfterSignIn from './components/User/HomeAfterSignIn';
 
-import CreateGroupe from './components/User/CreateGroupe';
+import CreateGroupe from './components/Groupe/CreateGroupe';
 import './App.css';
 import CreateTrip from './components/Groupe/CreateTrip';
 import GroupeHome from './components/Groupe/GroupeHome';
 import GroupeList from './components/Groupe/GroupeList';
 import DemandeGroupe from './components/Groupe/DemandeGroupe';
+import CreatePost from "./components/Post/CreatePost";
 
 
 
@@ -28,6 +29,7 @@ function App() {
           <Route path='/listeGroupes' element={<GroupeList/>} exact/>
           <Route path='/groupe/home/:groupeId' element={<GroupeHome/>} exact/>
           <Route path='/joinGroupe/:groupeId' element={<DemandeGroupe/>} exact/>
+          <Route path='/createPost/:id' element={<CreatePost/>}/>
         </Routes>
       </BrowserRouter>
     </div>
