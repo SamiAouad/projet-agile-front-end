@@ -1,26 +1,37 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import { useState } from "react";
+import GroupeHeader from "./GroupeHeader";
 
 const api = axios.create({
-    baseURL: `http://localhost:5000/groupe`
+    baseURL: `http://localhost:5000/post`
 })
 
-function GroupeHome(){
-    const params = useParams()
-    let [voyages, setVoyages] = useState([])
 
-    function getGroupes(){
-        api.post(`getVoyages/${params.groupeId}`, (res) => {
-            setVoyages(res)
-        })
+
+function GroupeHome(){
+    let [postes, setPostes] = useState([])
+    const params = useParams();
+    let groupeId = params.groupeId;
+    let userId = JSON.parse(localStorage.getItem('userInfo')).id
+
+
+    async function getPostes(){
+        const res = await api.get(`/getPostes/${groupeId}`)
+        setPostes(res.data)
     }
-    getGroupes()
+
+    useEffect(function (){
+        getPostes()
+    }, [])
+
+
     return(
     <div>
-        {voyages.map(voyage => {
-            <p>voyage</p>
+        <GroupeHeader id={groupeId}/>
+        {postes.map(poste => {
+            console.log(poste)
         })}
     </div>)
 }

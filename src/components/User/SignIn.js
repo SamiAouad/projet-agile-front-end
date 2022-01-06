@@ -27,7 +27,11 @@ function SignIn(){
                 return
             }
             else{
-                localStorage.setItem('userInfo', JSON.stringify(res.data))
+                //localStorage.setItem('userInfo', JSON.stringify(res.data))
+                let userInfo = {
+                    id: res.data.id,
+                }
+                localStorage.setItem('userInfo', JSON.stringify(userInfo))
                 navigate('/Home')
             }
         })
