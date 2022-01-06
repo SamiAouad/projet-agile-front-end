@@ -1,6 +1,8 @@
 import {Navbar, Container, NavDropdown, Nav} from 'react-bootstrap'
 import '../css/Body.css';
 import logo from '../../Images/Logo.png'
+import '../css/Home.css'
+
 
 
 import {useNavigate} from 'react-router'

@@ -1,13 +1,13 @@
 import React from "react";
 import Header from './Header'
 
-import '../css/Home.css'
 import '../css/Header.css';
 
 function HomeAfterSignIn() {
     return (
         <div>
             <Header/>
+            Page after Sign In
         </div>
     )
 }

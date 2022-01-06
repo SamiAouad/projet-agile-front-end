@@ -39,7 +39,6 @@ function GroupeHeader(props) {
                     <Nav >{
                             admin ?
                             <>
-                                <Nav.Link  href="/createTrip">Create trisp</Nav.Link>
                                 <Nav.Link href="#joinTrip">Group Trips</Nav.Link>
                                 <Nav.Link href="/createVoyage">Create Travel</Nav.Link>
                                 <Nav.Link href={`/createPost/${id}`}>Post</Nav.Link>
