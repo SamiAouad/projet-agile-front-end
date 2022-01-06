@@ -10,10 +10,11 @@ const api = axios.create({
 })
 
 
-function GroupeHeader() {
+function GroupeHeader(props) {
     const params = useParams()
     const navigate = useNavigate();
     let [admin, setAdmin] = useState(false)
+    let id = props.id
 
     async function checkAdmin (){
         let user = JSON.parse(localStorage.getItem('userInfo'))
@@ -38,10 +39,10 @@ function GroupeHeader() {
                     <Nav >{
                             admin ?
                             <>
-                                <Nav.Link  href="/createTrip">Create trip</Nav.Link>
+                                <Nav.Link  href="/createTrip">Create trisp</Nav.Link>
                                 <Nav.Link href="#joinTrip">Group Trips</Nav.Link>
                                 <Nav.Link href="/createVoyage">Create Travel</Nav.Link>
-                                <Nav.Link href={`/createPost/`}>Post</Nav.Link>
+                                <Nav.Link href={`/createPost/${id}`}>Post</Nav.Link>
                                 <Nav.Link onClick={logout}>Log out</Nav.Link>
                             </>
                             :

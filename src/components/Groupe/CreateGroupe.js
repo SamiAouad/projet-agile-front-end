@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router';
 import '../css/SignUp.css'
 import axios from 'axios';
 import Header from "../User/Header";
-import { ErrorMessage, Formik, useFormik } from "formik";
+import { useFormik } from "formik";
 import * as yup from 'yup';
 
 
@@ -12,7 +12,7 @@ const api = axios.create({
 })
 
 function CreateGroupe() {
-    const navigate = useNavigate();
+    let navigate = useNavigate();
     let [file, setFile] = useState();
 
     const onSubmit = async () => {
@@ -22,13 +22,14 @@ function CreateGroupe() {
         item.append('file', file)
 
         let user = JSON.parse(localStorage.getItem('userInfo'))
+        console.log("before")
         
-        api.post(`/createGroupe/${user.id}`, item).then(res => {
-            if (res.data == null)
-                console.log('creation de groupe impossible')
-            else
-                navigate(`/groupe/home/${res.data}`)
-        })
+        let res = await api.post(`/createGroupe/${user.id}`, item)
+        console.log(res)
+        if (res.data == null)
+            console.log('creation de groupe impossible')
+        else
+            navigate(`/groupe/home/${res.data}`)
     }
     const validationSchema = yup.object({
         title:  yup.string().max(15, 'Must be less than 15 characters').required('title is required'),
