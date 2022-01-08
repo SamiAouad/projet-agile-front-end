@@ -19,10 +19,7 @@ function Header() {
                 {
                     localStorage.getItem('userInfo') ?
                     <>
-                        <Nav.Link  href="/createTrip">Create trip</Nav.Link>
-                        <Nav.Link href="#joinTrip">Join Trip</Nav.Link>
                         <Nav.Link href="/createGroupe">Create Group</Nav.Link>
-                        <Nav.Link href="/createVoyage">Create Travel</Nav.Link>
                         <Nav.Link href="/listeGroupes">Join Group</Nav.Link>
                         <Nav.Link onClick={logout}>Log out</Nav.Link>
                     </>
