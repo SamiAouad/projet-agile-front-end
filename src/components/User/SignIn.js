@@ -4,7 +4,7 @@ import '../css/SignUp.css';
 import axios from 'axios';
 import * as yup from 'yup'
 import { useFormik } from "formik";
-import img from '../../Images/Image6.jpg'
+import img from '../../Images/Image11.jpg'
 
 
 const api = axios.create({

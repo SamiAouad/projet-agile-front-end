@@ -1,15 +1,17 @@
 import React from "react";
 import Header from './Header'
+import Body from './BodyAfterSignIn'
 
 import '../css/Header.css';
 
 function HomeAfterSignIn() {
     return (
-        <div>
-            <Header/>
-            Page after Sign In
+        <div> 
+            <Header />   
+             <Body/>
         </div>
-    )
+        
+        )
 }
 
 export default HomeAfterSignIn;
