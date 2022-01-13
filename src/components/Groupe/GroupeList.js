@@ -35,7 +35,7 @@ function GroupeList(){
                 setLoadingMemberships(false)
 
             });
-        }, [])
+        }, [refresh])
     
 
     if (loadingDemandes || loadingGroupes || loadingMemberships){
@@ -43,8 +43,9 @@ function GroupeList(){
     }
 
     let handleCancel = (userId, groupeId) => {
-        setRefresh(!refresh)
-        CancelDemande(userId, groupeId)
+        CancelDemande(userId, groupeId).then(() => {
+            setRefresh(!refresh)
+    })
     }
 
 

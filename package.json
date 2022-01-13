@@ -11,11 +11,13 @@
     "mdbreact": "^5.2.0",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.4",
+    "react-comments-section": "^1.0.7",
     "react-dom": "^17.0.2",
     "react-router": "^6.2.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.0",
     "react-scroll-motion": "^0.2.1",
+    "socket.io-client": "^4.4.1",
     "web-vitals": "^2.1.2",
     "yup": "^0.32.11"
   },

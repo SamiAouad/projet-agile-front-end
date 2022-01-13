@@ -39,14 +39,17 @@ function GroupeHeader(props) {
                     <Nav >{
                             admin ?
                             <>
-                                <Nav.Link href="#joinTrip">Group Trips</Nav.Link>
+                                <Nav.Link href={`/groupeVoyages/${id}`}>Group Trips</Nav.Link>
                                 <Nav.Link href="/createVoyage">Create Travel</Nav.Link>
                                 <Nav.Link href={`/createPost/${id}`}>Post</Nav.Link>
+                                <Nav.Link href={`/groupeChat/${id}`}>Chat</Nav.Link>
                                 <Nav.Link onClick={logout}>Log out</Nav.Link>
                             </>
                             :
                             <>
-                                <Nav.Link href="#joinTrip">Group Trips</Nav.Link>
+                                <Nav.Link href={`/createPost/${id}`}>Post</Nav.Link>
+                                <Nav.Link href={`/groupeVoyages/${id}`}>Group Trips</Nav.Link>
+                                <Nav.Link href={`/groupeChat/${id}`}>Chat</Nav.Link>
                                 <Nav.Link onClick={logout}>Log out</Nav.Link>
                             </>
                     }

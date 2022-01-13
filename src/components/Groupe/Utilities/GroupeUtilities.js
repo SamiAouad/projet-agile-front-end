@@ -18,13 +18,12 @@ export  function CheckMember(groupe, listes) {
     return test
 }
 
-export function CancelDemande(userId, groupeId) {
-    api.delete(`/refuse/${userId}/${groupeId}`).then(res => {
+export async function CancelDemande(userId, groupeId) {
+    let res = await api.delete(`/refuse/${userId}/${groupeId}`)
         if (res.data === true){
             return true
         }else{
             return false
         }
-    })
 }
 
