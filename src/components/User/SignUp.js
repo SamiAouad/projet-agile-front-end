@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {useNavigate} from 'react-router';
 import axios from 'axios';
 import '../css/SignUp.css';
+import img from '../../Images/Image10.jpg'
 import logo from '../../Images/Logo.png'
 import * as yup from 'yup'
 import { useFormik } from "formik";
@@ -13,7 +14,7 @@ const api = axios.create({
 
 function SignUp(){
     const navigate = useNavigate();
-    
+ 
     const validationSchema = yup.object({
         firstname: yup.string('firstname must be a string').required('firstname is required'),
         lastname: yup.string().required(),
@@ -25,7 +26,7 @@ function SignUp(){
     })
 
     const onSubmit = async () => {
-
+        console.log('Onsubmit')
         let item = {
             firstname: formik.values.firstname,
             lastname: formik.values.lastname,
@@ -36,8 +37,9 @@ function SignUp(){
         }
         api.post('/signUp', item).then(res => {
             if (res.data == null)
-                console.log('sign up impossible')
+            console.log('sign up impossible')
             else
+           
                 navigate('/')
         })
     }
@@ -56,13 +58,17 @@ function SignUp(){
         validationSchema
     })
 
-    return (
-                <div className='col-sm-2 offset-sm-5 '>
-                   
-                <form onSubmit={formik.handleSubmit} className="form-signin text-light text-center">
-                    <img className="mb-4" src={logo} alt="" width="72" height="72"/>
-                    <h1>Register</h1>
-                        <input type='text' name="firstname" value={formik.values.firstname} onChange={formik.handleChange} placeholder='firstname' className='form-control' />
+    return (              
+  <div className="container d-flex justify-content-center my-5 ">
+   <div className="row my-2 mx-2 main">
+    <div className="col-md-4 col-12 mycol">
+            <img src={img}  width="100%" height="100%" className="rounded"/> </div>
+        <div className="col-md-8 col-12 xcol">
+             <img src={logo} width="150px"/>
+             <div className="col align-self-center">
+             <form  onSubmit={formik.handleSubmit} >
+                 <div className='col-sm-8 offset-sm-2 text-center form-signUp'>
+                 <input type='text' name="firstname" value={formik.values.firstname} onChange={formik.handleChange} placeholder='firstname' className='form-control' />
                         {formik.errors.firstname ? <div className="text-danger">{formik.errors.firstname}</div> : null}
                         <br />
                         <input type='text' name="lastname" value={formik.values.lastname} onChange={formik.handleChange} placeholder='lastname' className='form-control' />
@@ -88,10 +94,18 @@ function SignUp(){
                         {formik.errors.passwordconf ? <div className="text-danger">{formik.errors.passwordconf}</div> : null}
 
                         <br/>
-                        <button type="submit" className='btn btn-outline-success'>Sign up</button>
+                        <button type="submit" className=' btn btn-outline-warning'>Sign up</button>
+                 </div>
+           
         
-                </form>
+            </form>
+             </div>
+           
+        </div>
     </div>
+    </div>
+                   
+    
         
     )
 }

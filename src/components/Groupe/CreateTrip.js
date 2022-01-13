@@ -18,7 +18,7 @@ function CreateTrip() {
    
     
 
-    const signUp = async () => {
+    const AddTrip = async () => {
 
         let item = { price,dateStart, dateEnd, capacite, description}
         let user = JSON.parse(localStorage.getItem('userInfo'))
@@ -27,7 +27,7 @@ function CreateTrip() {
             if (res.data == null)
                 console.log('creation de Voyage impossible')
             else
-                navigate('/')
+                navigate('/Home')
         })
     }
 
@@ -48,7 +48,7 @@ function CreateTrip() {
                     <br />
                     <textarea value={description} onChange={e => setdescription(e.target.value)} placeholder='description' className='form-control' />
                     <br />
-                    <button onClick={signUp} className='btn btn-primary'>Create</button>
+                    <button onClick={AddTrip} className='btn btn-primary'>Create</button>
                 </div>
             </div>
         </div>

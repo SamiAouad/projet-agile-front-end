@@ -1,4 +1,5 @@
 import {Navbar, Container, Nav} from 'react-bootstrap'
+import logo from '../../Images/Logo.png'
 import '../css/Header.css';
 import {useNavigate} from 'react-router'
 
@@ -14,7 +15,7 @@ function Header() {
             
             <Navbar>
                 <Container  >
-                <Navbar.Brand  href="/"><h1 className=' title text-light'>Viatores</h1></Navbar.Brand>
+                <Navbar.Brand  href="/"><img src={logo} alt='' className=' navbar-brand'/></Navbar.Brand>
                 <Nav >
                 {
                     localStorage.getItem('userInfo') ?
@@ -25,9 +26,11 @@ function Header() {
                     </>
                     :
                     <>
-                        <Nav.Link  className='text-light' href="/signIn">Sign-in</Nav.Link>
-                        <Nav.Link className='text-light' href="/signUp">Sign-up</Nav.Link>
+                        <Nav.Link  className='button-40' href="/signIn">Sign-in</Nav.Link>
+                        <Nav.Link className='button-40' href="/signUp">Sign-up</Nav.Link>
                     </>
+                    
+
                 }
                 </Nav>
                 </Container>
