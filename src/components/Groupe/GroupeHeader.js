@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {Container, Nav, Navbar} from "react-bootstrap";
 import {useNavigate} from "react-router";
-import '../css/Header.css';
 import axios from "axios";
 import {useParams} from "react-router";
 import {UserUtilities} from "../User/Utilities/UserUtilities";
@@ -39,14 +38,17 @@ function GroupeHeader(props) {
                     <Nav >{
                             admin ?
                             <>
-                                <Nav.Link href="#joinTrip">Group Trips</Nav.Link>
+                                <Nav.Link href={`/groupeVoyages/${id}`}>Group Trips</Nav.Link>
                                 <Nav.Link href="/createVoyage">Create Travel</Nav.Link>
                                 <Nav.Link href={`/createPost/${id}`}>Post</Nav.Link>
+                                <Nav.Link href={`/groupeChat/${id}`}>Chat</Nav.Link>
                                 <Nav.Link onClick={logout}>Log out</Nav.Link>
                             </>
                             :
                             <>
-                                <Nav.Link href="#joinTrip">Group Trips</Nav.Link>
+                                <Nav.Link href={`/createPost/${id}`}>Post</Nav.Link>
+                                <Nav.Link href={`/groupeVoyages/${id}`}>Group Trips</Nav.Link>
+                                <Nav.Link href={`/groupeChat/${id}`}>Chat</Nav.Link>
                                 <Nav.Link onClick={logout}>Log out</Nav.Link>
                             </>
                     }

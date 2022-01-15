@@ -1,10 +1,9 @@
 import React, {useState} from "react";
 import {useNavigate} from 'react-router';
-import '../css/SignUp.css'
 import axios from 'axios';
-import Header from "../User/Header";
 import { useFormik } from "formik";
 import * as yup from 'yup';
+import '../css/postForm.css'
 
 
 const api = axios.create({
@@ -59,18 +58,19 @@ function CreateGroupe() {
 
     return (
         <div>
-           <Header/>
                     <div>
-                    <div className='col-sm-6 offset-sm-3 text-center form-signin'>
+                    <div className='col-sm-6 offset-sm-3 text-center write'>
                         <h1>CREATE GROUP</h1>
-                        <form onSubmit={formik.handleSubmit}>
-                            <input name="title" type='text' value={formik.values.title} onChange={formik.handleChange} placeholder='title of the groupe' className='form-control' />
+                        <img className="writeImg" src="#" alt=""/>
+                        <form onSubmit={formik.handleSubmit} className="write">
+                            <input className="writeInput" name="title" type='text' value={formik.values.title} onChange={formik.handleChange} placeholder='title of the groupe' className='form-control' />
                             {formik.errors.title ? <div className='text-danger'>{formik.errors.title}</div> : null}
                             <br />
-                            <textarea name="groupeDescription" value={formik.values.groupeDescription} onChange={formik.handleChange} placeholder='description' className='form-control' />
+                            <textarea className="writeInput" name="groupeDescription" value={formik.values.groupeDescription} onChange={formik.handleChange} placeholder='description' className='form-control' />
                             {formik.errors.groupeDescription ? <div className='text-danger'>{formik.errors.groupeDescription}</div> : null}
                             <br />
-                            <button type="submit" className='btn btn-primary'>Sign up</button>
+                            <input type='file' className="fileInput" id='file' accept="jpg" onChange={e => setFile(e.target.files[0])}></input>
+                            <button type="submit" className='writeSubmit'>Sign up</button>
                         </form>
                     </div>
                     </div>

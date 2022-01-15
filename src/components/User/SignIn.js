@@ -33,6 +33,7 @@ function SignIn(){
                 //localStorage.setItem('userInfo', JSON.stringify(res.data))
                 let userInfo = {
                     id: res.data.id,
+                    username: res.data.username
                 }
                 localStorage.setItem('userInfo', JSON.stringify(userInfo))
                 navigate('/Home')
