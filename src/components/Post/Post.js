@@ -8,7 +8,7 @@ export default function Post({img}) {
     <div className="post">
       <img
         className="postImg"
-        src={img}
+        src={`data:image/png;base64, ${img}`}
         alt=""
       />
       <div className="postInfo">
