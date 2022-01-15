@@ -4,7 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import "../css/post.css"
 import GroupeHeader from "./GroupeHeader";
-import * as Buffer from "buffer";
+
 const api = axios.create({
     baseURL: `http://localhost:5000/post`
 })

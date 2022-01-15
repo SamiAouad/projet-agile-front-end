@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import img from "../../Images/Image2.jpg";
 import { useState, useEffect } from "react";
 import { Button, Container, Row } from "react-bootstrap";
 import { Card } from "react-bootstrap";
@@ -72,7 +73,9 @@ function GroupeList(){
                         <div className="row">
                             <div className="col-4">
                             <Card>
+                            <img src={img} class="card-img-top" alt=""/>
                                 <Card.Body>
+                                   
                                     <Card.Title>{groupe.title}</Card.Title>
                                     <Card.Text>{groupe.groupeDescription}</Card.Text>
                                     {groupeButton(groupe)}
