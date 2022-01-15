@@ -1,4 +1,4 @@
-body {
+/* body {
     background: #ffffff70
     
 }
@@ -78,4 +78,69 @@ a {
     font-size: 80% !important;
     transform: translate3d(0, -100%, 0) !important;
     opacity: 1 !important
-}
+} */
+
+.login {
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        #1120319d,
+        rgba(255, 255, 255, 0.5)
+      ),
+      url("./src/Background1.jpg");
+    background-size: cover;
+  }
+  
+  .loginTitle {
+    font-size: 50px;
+    color: white;
+  }
+  
+  .loginForm {
+      color: white;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .loginForm > label {
+    margin: 10px 0;
+  }
+  
+  .loginInput {
+      color: white;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.315);
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .loginInput:focus {
+    outline: none;
+  }
+  
+  .loginButton {
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #FF4C29;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .loginRegisterButton {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #152D35;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    color: white;
+    border-radius: 10px;
+  }

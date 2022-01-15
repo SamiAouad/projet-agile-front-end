@@ -3,7 +3,6 @@ import Header from './Header'
 import Body from './Body'
 import '../css/Home.css';
 
-import HomeAfterSignIn from "./HomeAfterSignIn";
 
 function Home() {
 

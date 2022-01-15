@@ -1,14 +1,18 @@
 import React from "react";
-import Header from './Header'
-import Body from './BodyAfterSignIn'
 
-import '../css/Header.css';
+import Posts from "../Post/Posts";
+import Sidebar from "./Sidebar";
+import Header from "./Header"
+import {Navbar, Container, Nav} from 'react-bootstrap'
+
 
 function HomeAfterSignIn() {
     return (
         <div> 
-            <Header />   
-             <Body/>
+            <Header />
+            <Posts />
+          
+       
         </div>
         
         )

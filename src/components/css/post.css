@@ -1,4 +1,7 @@
-.my-carousel {
-    width: 100px;
-    height: 100px;
+
+.posts{
+    flex: 9;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
 }

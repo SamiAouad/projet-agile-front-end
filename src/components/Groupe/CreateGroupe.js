@@ -45,6 +45,18 @@ function CreateGroupe() {
         validationSchema
     })
 
+    const handlePhotos = (e) => {
+        const image = e.target.files[0]
+            let base64String = ""
+            let reader = new FileReader();
+            reader.onload = () => {
+                base64String = reader.result
+                                    .replace("data:", "")
+                                    .replace(/^.+,/, "")
+            reader.readAsDataURL(image[0]);
+        }
+    }
+
     return (
         <div>
            <Header/>
@@ -58,7 +70,13 @@ function CreateGroupe() {
                             <textarea name="groupeDescription" value={formik.values.groupeDescription} onChange={formik.handleChange} placeholder='description' className='form-control' />
                             {formik.errors.groupeDescription ? <div className='text-danger'>{formik.errors.groupeDescription}</div> : null}
                             <br />
-                            <input type='file' id='file' accept="jpg" onChange={e => setFile(e.target.files[0])}></input>
+                            <input 
+                                type="file" name="photos" id="photos" 
+                                accept="image/png, image/jpeg"
+                                multiple
+                                onChange={(e)=>handlePhotos(e)}
+                                required
+                            />
                             <button type="submit" className='btn btn-primary'>Sign up</button>
                         </form>
                     </div>
