@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {Container, Nav, Navbar} from "react-bootstrap";
 import {useNavigate} from "react-router";
-import '../css/Header.css';
 import axios from "axios";
 import {useParams} from "react-router";
 import {UserUtilities} from "../User/Utilities/UserUtilities";

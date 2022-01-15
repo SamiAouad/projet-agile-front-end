@@ -1,6 +1,5 @@
 import React from "react";
 import {useNavigate} from 'react-router';
-import '../css/SignUp.css';
 import axios from 'axios';
 import * as yup from 'yup'
 import { useFormik } from "formik";

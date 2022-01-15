@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import "../css/post.css"
 import GroupeHeader from "./GroupeHeader";
+import * as Buffer from "buffer";
 const api = axios.create({
     baseURL: `http://localhost:5000/post`
 })
@@ -37,7 +38,7 @@ function GroupeHome(){
                 postes.map(poste => {
                     return (
                         <div key={poste.id} className="card row" >
-                            <img className="card-img-top" src="..." alt="Card image cap"/>
+                            <img className="card-img-top" src={`data:image/png;base64, ${poste.image}`} alt="Card image cap"/>
                                 <div className="card-body">
                                     <h5 className="card-title">{poste.title}</h5>
                                     <p className="card-text">{poste.content}</p>

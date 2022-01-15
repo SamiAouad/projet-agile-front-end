@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {useNavigate} from 'react-router';
 import axios from 'axios';
-import '../css/SignUp.css';
 import img from '../../Images/Image10.jpg'
 import logo from '../../Images/Logo.png'
 import * as yup from 'yup'

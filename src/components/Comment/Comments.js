@@ -3,6 +3,8 @@ import {useParams} from "react-router";
 import axios from "axios";
 import * as yup from "yup";
 import {useFormik} from "formik";
+import { Link } from "react-router-dom";
+import '../css/post.css';
 
 const api = axios.create({
     baseURL: `http://localhost:5000/post`,
@@ -62,7 +64,7 @@ function Comments(props) {
     if (loading === true){
         return(<div>Loading</div>)
     }
-
+    /*
     return (
         <div className="card">
             <img src="..." className="card-img-top" alt="..."/>
@@ -94,6 +96,60 @@ function Comments(props) {
                     <a href="#" className="card-link">Card link</a>
                     <a href="#" className="card-link">Another link</a>
                 </div>
+        </div>
+    );
+    */
+    return (
+        <div className="post">
+            <img
+                className="postImg"
+                src=""
+                alt=""
+            />
+            <div className="postInfo">
+                <div className="postCats">
+          <span className="postCat">
+            <Link className="link" to="/posts?cat=Music">
+              Music
+            </Link>
+          </span>
+                    <span className="postCat">
+            <Link className="link" to="/posts?cat=Music">
+              Life
+            </Link>
+          </span>
+                </div>
+                <span className="postTitle">
+          <Link to="/post/abc" className="link">
+            {poste.title}
+          </Link>
+        </span>
+                <hr />
+                <span className="postDate">1 hour ago</span>
+            </div>
+            <p className="postDesc">{poste.content}</p>
+            <ul className="list-group list-group-flush">
+                {
+                    comments.map(comment => {
+                        /*<li key={comment.id} className="list-group-item">{comment.username}: {comment.contenu}</li>*/
+                        return(
+                            <div className="col s12 m7" key={comment.id}>
+                                <div className="card horizontal">
+                                    <div className="card-stacked">
+                                        <div className="card-content">
+                                            <span className="card-title">{comment.username}</span>
+                                            <p>{comment.contenu}</p>
+                                        </div>
+                                        <div className="card-action">
+                                            <a href="#">This is a link</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })
+                }
+            </ul>
         </div>
     );
 }

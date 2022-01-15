@@ -1,7 +1,6 @@
 import React from "react";
 import Header from './Header'
 
-import '../css/Header.css';
 
 function HomeAfterSignIn() {
     return (

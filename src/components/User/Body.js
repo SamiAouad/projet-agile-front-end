@@ -1,5 +1,4 @@
 import {Navbar, Container, NavDropdown, Nav , Carousel} from 'react-bootstrap'
-import '../css/Body.css';
 import img1 from '../../Images/Image1.jpg'
 import img2 from '../../Images/Image2.jpg'
 import img3 from '../../Images/Image3.jpg'
