@@ -70,13 +70,6 @@ function CreateGroupe() {
                             <textarea name="groupeDescription" value={formik.values.groupeDescription} onChange={formik.handleChange} placeholder='description' className='form-control' />
                             {formik.errors.groupeDescription ? <div className='text-danger'>{formik.errors.groupeDescription}</div> : null}
                             <br />
-                            <input 
-                                type="file" name="photos" id="photos" 
-                                accept="image/png, image/jpeg"
-                                multiple
-                                onChange={(e)=>handlePhotos(e)}
-                                required
-                            />
                             <button type="submit" className='btn btn-primary'>Sign up</button>
                         </form>
                     </div>
