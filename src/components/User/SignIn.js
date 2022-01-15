@@ -1,9 +1,12 @@
 import React from "react";
 import {useNavigate} from 'react-router';
+import '../css/SignIn.css';
 import axios from 'axios';
-import * as yup from 'yup'
+import * as yup from 'yup';
+import Header from "./Header";
+
 import { useFormik } from "formik";
-import img from '../../Images/Image6.jpg'
+import img from '../../Images/Image11.jpg'
 
 
 const api = axios.create({
@@ -50,7 +53,8 @@ function SignIn(){
    
     return(
         <div >
-        <div className=" container d-flex justify-content-center my-5 ">
+        
+        {/* <div className=" container d-flex justify-content-center my-5 ">
             <div className="row my-2 mx-2 main">
                 <div className="col-md-4 col-12 mycol">
                 <img src={img}  width="100%" height="100%" className="rounded"/> 
@@ -71,8 +75,22 @@ function SignIn(){
            </div>
         
             </div>
-            </div>
+            </div> */}
+         <div className="login">
+      <span className="loginTitle">Login</span>
+      <form className="loginForm" onSubmit={formik.handleSubmit}>
+        <label>Username</label>
+        <input type='text' name='username' value={formik.values.username} onChange={formik.handleChange} placeholder='username' className='loginInput' />
+        {formik.errors.username ? <div className="text-danger">{formik.errors.username}</div> : null}
         
+        <label>Password</label>
+        <input type='password' name='password' value={formik.values.password} onChange={formik.handleChange} placeholder='password' className='loginInput' />
+        {formik.errors.password ? <div className="text-danger">{formik.errors.password}</div> : null}
+        <br />
+        <button className="loginButton"type="submit">Login</button>
+      </form>
+        <button className="loginRegisterButton">Register</button>
+    </div>
         </div>
     )
 }

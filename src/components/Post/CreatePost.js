@@ -101,7 +101,7 @@ function CreatePost(props) {
                     {formik.errors.content ? <div className='text-danger'>{formik.errors.content}</div> : null}
                     <br />
                     <input type='file' id='file' accept="jpg" onChange={e => setFile(e.target.files[0])}/>
-                    <button type="submit" className='btn btn-primary'>Sign up</button>
+                    <button type="submit" className='btn btn-primary'>Post-It</button>
                 </form>
             </div>*/
     );

@@ -2,7 +2,6 @@ import React, {useEffect} from "react";
 import Header from './Header'
 import Body from './Body'
 
-import HomeAfterSignIn from "./HomeAfterSignIn";
 
 function Home() {
 

@@ -44,6 +44,18 @@ function CreateGroupe() {
         validationSchema
     })
 
+    const handlePhotos = (e) => {
+        const image = e.target.files[0]
+            let base64String = ""
+            let reader = new FileReader();
+            reader.onload = () => {
+                base64String = reader.result
+                                    .replace("data:", "")
+                                    .replace(/^.+,/, "")
+            reader.readAsDataURL(image[0]);
+        }
+    }
+
     return (
         <div>
                     <div>
