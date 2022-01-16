@@ -11,7 +11,6 @@ import GroupeList from './components/Groupe/GroupeList';
 import DemandeGroupe from './components/Groupe/DemandeGroupe';
 import CreatePost from "./components/Post/CreatePost";
 import Comments from "./components/Comment/Comments";
-import Chat from "./components/Groupe/Chat";
 import VoyagesList from "./components/Voyage/VoyagesList";
 import VoyageGroupe from "./components/Voyage/VoyageGroupe";
 
@@ -34,6 +33,7 @@ function App() {
           <Route path='/joinGroupe/:groupeId' element={<DemandeGroupe/>} exact/>
           <Route path='/createPost/:id' element={<CreatePost/>}/>
           <Route path='/posteCommentaire/:posteId' element={<Comments/>}/>
+          <Route path='/groupeVoyages/:groupeId' element={<VoyagesList/>}/>
           <Route path='/groupeChat/:groupeId' element={<Chat/>}/>
           <Route path='/groupeVoyages/:groupeId' element={<VoyageGroupe/>}/>
         </Routes>

@@ -1,5 +1,5 @@
 import Posts from "../Post/Posts";
-import Sidebar from "./Sidebar";
+
 import {Navbar, Container, Nav} from 'react-bootstrap'
 
 function BodyAfterSignIn() {
@@ -9,7 +9,6 @@ function BodyAfterSignIn() {
     <div>
   <div className="home">
         <Posts />
-        <Sidebar />
       </div>
     </div>
 

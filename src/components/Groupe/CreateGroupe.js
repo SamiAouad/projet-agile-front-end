@@ -57,24 +57,66 @@ function CreateGroupe() {
     }
 
     return (
-        <div>
-                    <div>
-                    <div className='col-sm-6 offset-sm-3 text-center write'>
-                        <h1>CREATE GROUP</h1>
-                        <img className="writeImg" src="#" alt=""/>
-                        <form onSubmit={formik.handleSubmit} className="write">
-                            <input className="writeInput" name="title" type='text' value={formik.values.title} onChange={formik.handleChange} placeholder='title of the groupe' className='form-control' />
-                            {formik.errors.title ? <div className='text-danger'>{formik.errors.title}</div> : null}
-                            <br />
-                            <textarea className="writeInput" name="groupeDescription" value={formik.values.groupeDescription} onChange={formik.handleChange} placeholder='description' className='form-control' />
-                            {formik.errors.groupeDescription ? <div className='text-danger'>{formik.errors.groupeDescription}</div> : null}
-                            <br />
-                            <input type='file' className="fileInput" id='file' accept="jpg" onChange={e => setFile(e.target.files[0])}></input>
-                            <button type="submit" className='writeSubmit'>Sign up</button>
-                        </form>
+        // <div>
+        //             <div>
+        //             <div className='col-sm-6 offset-sm-3 text-center write'>
+        //                 <h1>CREATE GROUP</h1>
+        //                 <img className="writeImg" src="#" alt=""/>
+        //                 <form onSubmit={formik.handleSubmit} className="write">
+        //                     <input className="writeInput" name="title" type='text' value={formik.values.title} onChange={formik.handleChange} placeholder='title of the groupe' className='form-control' />
+        //                     {formik.errors.title ? <div className='text-danger'>{formik.errors.title}</div> : null}
+        //                     <br />
+        //                     <textarea className="writeInput" name="groupeDescription" value={formik.values.groupeDescription} onChange={formik.handleChange} placeholder='description' className='form-control' />
+        //                     {formik.errors.groupeDescription ? <div className='text-danger'>{formik.errors.groupeDescription}</div> : null}
+        //                     <br />
+        //                     <input type='file' className="fileInput" id='file' accept="jpg" onChange={e => setFile(e.target.files[0])}></input>
+        //                     <button type="submit" className='writeSubmit'>Sign up</button>
+        //                 </form>
+        //             </div>
+        //             </div>
+        // </div>
+        <div className="container-fluid register">
+        <form className="row" onSubmit={formik.handleSubmit}>
+            <div className="col-md-3 register-left">
+               
+                <h3>CREATE YOUR GROUP TRAVEL </h3>
+                <p>LIFE IS EASY</p>
+            </div>
+            <div className="col-md-9 register-right">
+                <div className="tab-content" id="myTabContent">
+                    <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 className="register-heading">CREATE YOUR COMMUNITY </h3>
+                        <div className="row register-form">
+                            <div className="col-md-6">
+                                <div className="form-group">
+                                <input className="writeInput" name="title" type='text' value={formik.values.title} onChange={formik.handleChange} placeholder='title of the groupe' className='form-control' />
+                                {formik.errors.title ? <div className='text-danger'>{formik.errors.title}</div> : null}
+                                </div>
+                                <div className="form-group">
+                                <textarea className="writeInput" name="groupeDescription" value={formik.values.groupeDescription} onChange={formik.handleChange} placeholder='description' className='form-control' />
+                                {formik.errors.groupeDescription ? <div className='text-danger'>{formik.errors.groupeDescription}</div> : null}
+                                </div>
+                                
+                                <div className="form-group">
+                                <input type='file' className="fileInput" id='file' accept="jpg" onChange={e => setFile(e.target.files[0])}></input>
+                                </div>
+                            </div>
+                            <div className="col-md-6">
+                                <div className="form-group">
+                                </div>
+                                <div className="form-group">
+                                </div>
+                                <div className="form-group">
+                                </div>
+                                <input type="submit" className="btnRegister " value="CREATE"/>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-        </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
     )
 }
 
