@@ -35,11 +35,9 @@ const api = axios.create({
     <div className="posts row">
         {postes.map(poste => {
             return (
-                <section key={poste.id} className="dark col-12">
                     <div className="container-fluid py-4">
                         <Post poste={poste}/>
                     </div>
-                </section>
             )
         })}
     </div>
