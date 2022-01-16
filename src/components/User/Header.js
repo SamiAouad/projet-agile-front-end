@@ -15,9 +15,9 @@ function Header() {
     return (
         <div>
             
-            <Navbar>
+            <Navbar className='fixed-top'>
                 <Container  >
-                <Navbar.Brand  href="/"><img src={logo} alt='' className=' navbar-brand'/></Navbar.Brand>
+                <Navbar.Brand  href="/"><img src={logo} alt='' className=' navbar-brand '/></Navbar.Brand>
                 <Nav>
                 {
                     localStorage.getItem('userInfo') ?
