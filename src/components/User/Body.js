@@ -4,13 +4,10 @@ import img2 from '../../Images/Image2.jpg'
 import img3 from '../../Images/Image3.jpg'
 
 
-
-import {useNavigate} from 'react-router'
-
 function Body() {
   
     return (
- <div className='mt-0'>
+ <div className='mt-0' >
   <Carousel className='mt-0 '>
   <Carousel.Item>
     <img

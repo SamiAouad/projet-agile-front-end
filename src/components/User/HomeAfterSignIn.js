@@ -3,16 +3,16 @@ import React from "react";
 import Posts from "../Post/Posts";
 
 import Header from "./Header"
-import {Navbar, Container, Nav} from 'react-bootstrap'
-import {Button, Row, Col} from "react-bootstrap";
-import Hero from "./Hero";
-import img from "../../Images/Image10.jpg";
-import logo from "../../Images/Logo.png";
+import Body from "./Body";
 
 
 function HomeAfterSignIn() {
     return (
-           <Header/>
+<div>          <Header/>
+                <Body/>
+                <Posts/></div>
+                
+           
         )
 }
 
