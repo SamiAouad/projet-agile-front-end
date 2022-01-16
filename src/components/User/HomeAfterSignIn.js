@@ -8,9 +8,11 @@ import Body from "./Body";
 
 function HomeAfterSignIn() {
     return (
-<div>          <Header/>
+            <div> 
+                <Header/>
                 <Body/>
-                <Posts/></div>
+                <Posts/>
+                </div>
                 
            
         )

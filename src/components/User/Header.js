@@ -22,14 +22,14 @@ function Header() {
                 {
                     localStorage.getItem('userInfo') ?
                     <>
-                        <Link className="button-81" to="/createGroupe">Create Groupe</Link>
-                        <Link className="button-81" to="/listeGroupes">Groupe List</Link>
-                        <Button className="button-81" onClick={logout}>Log out</Button>
+                        <Link className="button-81 margin-left" to="/createGroupe">Create Groupe</Link>
+                        <Link className="button-81 margin-left" to="/listeGroupes">Groupe List</Link>
+                        <Button className="button-81 margin-left" onClick={logout}>Log out</Button>
                     </>
                     :
                     <>
-                        <Link className="button-81" to="/signIn">Sign In</Link>
-                        <Link className="button-81" to="/signUp">Sign Up</Link>
+                        <Link className="button-81 margin-left" to="/signIn">Sign In</Link>
+                        <Link className="button-81 margin-left" to="/signUp">Sign Up</Link>
                     </>
                 }
                 </Nav>

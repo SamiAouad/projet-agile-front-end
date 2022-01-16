@@ -1,7 +1,7 @@
 import {Navbar, Container, NavDropdown, Nav , Carousel} from 'react-bootstrap'
-import img1 from '../../Images/Image1.jpg'
-import img2 from '../../Images/Image2.jpg'
-import img3 from '../../Images/Image3.jpg'
+import img1 from '../../Images/Image6.jpg'
+import img2 from '../../Images/Image7.jpg'
+import img3 from '../../Images/Image8.jpg'
 
 
 function Body() {
