@@ -5,6 +5,7 @@ import * as yup from "yup";
 import {useFormik} from "formik";
 import { Link } from "react-router-dom";
 import '../css/post.css';
+import GroupeHeader from "../Groupe/GroupeHeader";
 
 const api = axios.create({
     baseURL: `http://localhost:5000/post`,
@@ -101,38 +102,41 @@ function Comments(props) {
     );
     */
     return (
-        <div className={"row"}>
-            <div className={"col-12"}>
-                <article className="postcard dark blue">
-                    <a className="postcard__img_link" href="#">
-                        <img className="postcard__img" src={`data:image/png;base64, ${poste.image}`} alt="Image Title"/>
-                    </a>
-                    <div className="postcard__text">
-                        <h1 className="postcard__title blue"><a href="#">{poste.title}</a></h1>
-                        <div className="postcard__subtitle small">
-                            <time dateTime="2020-05-25 12:00:00">
-                                <i className="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-                            </time>
+        <div>
+            <GroupeHeader/>
+            <div className={"row"}>
+                <div className={"col-12"}>
+                    <article className="postcard dark blue">
+                        <a className="postcard__img_link" href="#">
+                            <img className="postcard__img" src={`data:image/png;base64, ${poste.image}`} alt="Image Title"/>
+                        </a>
+                        <div className="postcard__text">
+                            <h1 className="postcard__title blue"><a href="#">{poste.title}</a></h1>
+                            <div className="postcard__subtitle small">
+                                <time dateTime="2020-05-25 12:00:00">
+                                    <i className="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+                                </time>
+                            </div>
+                            <div className="postcard__bar"></div>
+                            <div className="postcard__preview-txt">{poste.content}</div>
+                            <ul>
+                                {
+                                    comments.map(comment => {
+                                        return(
+                                            <li key={comment.id} className="list-group-item">{comment.username}: {comment.contenu}</li>
+                                        );
+                                    })
+                                }
+                            </ul>
+                            <form onSubmit={formik.handleSubmit}>
+                                <textarea name="contenu" value={formik.values.contenu} onChange={formik.handleChange} placeholder='contenu' className='form-control' />
+                                {formik.errors.contenu ? <div className='text-danger'>{formik.errors.groupeDescription}</div> : null}
+                                <br />
+                                <button type="submit" className='button-81'>comment</button>
+                            </form>
                         </div>
-                        <div className="postcard__bar"></div>
-                        <div className="postcard__preview-txt">{poste.content}</div>
-                        <ul>
-                            {
-                                comments.map(comment => {
-                                    return(
-                                        <li key={comment.id} className="list-group-item">{comment.username}: {comment.contenu}</li>
-                                    );
-                                })
-                            }
-                        </ul>
-                        <form onSubmit={formik.handleSubmit}>
-                            <textarea name="contenu" value={formik.values.contenu} onChange={formik.handleChange} placeholder='contenu' className='form-control' />
-                            {formik.errors.contenu ? <div className='text-danger'>{formik.errors.groupeDescription}</div> : null}
-                            <br />
-                            <button type="submit" className='button-81'>comment</button>
-                        </form>
-                    </div>
-                </article>
+                    </article>
+                </div>
             </div>
         </div>
     );

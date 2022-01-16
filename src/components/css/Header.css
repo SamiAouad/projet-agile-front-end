@@ -1,22 +1,19 @@
-.fixed-top {
+.fixed-top{
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
-   
 }
-
 .navbar-brand{
     width: 65px;
-
 }
 .margin-left{
     margin-left: 40px;
 }
 .navbar{
     align-items: center;
-    
-    background: -webkit-linear-gradient(left, #07161B, #1A595B)
+    background: -webkit-linear-gradient(left, #07161B, #1A595B);
+    padding: 0px;
 }
 
 .nav-link{
@@ -67,6 +64,7 @@
 }
 
 .button-81 {
+    margin-left: 50px;
     background-color: #fff;
     border: 0 solid #e2e8f0;
     border-radius: 1.5rem;
@@ -93,7 +91,6 @@
     background-color: #1e293b;
     color: #fff;
 }
-
 @media (min-width: 768px) {
     .button-81 {
         font-size: 1.125rem;
@@ -110,4 +107,27 @@
         font-size: 1.125rem;
         padding: 1rem 2rem;
     }
+}
+
+.button-form{
+    background: #18967B;
+    color: #fff;
+}
+
+
+.button-form:hover{
+    background: #D4ECDD;
+    color: #000000;
+}
+
+
+
+
+
+
+
+
+
+.dropdown-basic{
+    margin-left: 20px;
 }

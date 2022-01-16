@@ -45,12 +45,12 @@ function DemandeGroupe() {
             <GroupeHeader/>
                     <div>
                     <div className='col-sm-6 offset-sm-3 text-center form-signin'>
-                        <h1>DEMANDE DE REJOINDRE</h1>
+                        <h1 className={"text-light"}>DEMANDE DE REJOINDRE</h1>
                         <form onSubmit={formik.handleSubmit}>
                             <textarea name="motivation" value={formik.values.motivation} onChange={formik.handleChange} placeholder='motivation' className='form-control' />
                             {formik.errors.motivation ? <div className='text-danger'>{formik.errors.motivation}</div> : null}
                             <br />
-                            <button type="submit" className='btn btn-primary'>Envoyer</button>
+                            <button type="submit" className='button-81'>Envoyer</button>
                         </form>
                     </div>
                     </div> 

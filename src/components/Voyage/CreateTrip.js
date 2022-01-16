@@ -6,7 +6,10 @@ import * as yup from "yup";
 import {useFormik} from "formik";
 import '../css/SignUp.css'
 import {Button} from "react-bootstrap";
+import {Link} from "react-router-dom";
 import GroupeHeader from "../Groupe/GroupeHeader";
+import img from "../../Images/Image10.jpg";
+import logo from "../../Images/Logo.png";
 
 const api = axios.create({
     baseURL: `http://localhost:5000/voyage`
@@ -16,6 +19,7 @@ function CreateTrip() {
     const navigate = useNavigate();
     const params = useParams();
     const groupeId = params.groupeId;
+    let [image, setImage] = useState("https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
 
     let [file, setFile] = useState();
 
@@ -37,7 +41,7 @@ function CreateTrip() {
         if (res.data == null)
             console.log('creation de voyage impossible')
         else
-            navigate(`/groupe/home/${res.data}`)
+            navigate(`/groupeVoyages/${groupeId}`)
     }
     const validationSchema = yup.object({
         price:  yup.number().required(),
@@ -87,13 +91,18 @@ function CreateTrip() {
         */
 
     return (
-        <div>
-            <GroupeHeader/>
-            <div className="container-fluid register">
+        <div className={"container-fluid"}>
+            <div className="row register">
                 <form className="row" onSubmit={formik.handleSubmit}>
                     <div className="col-md-3 register-left">
+                        <img src={logo} alt=""/>
                         <h3>CREATE YOUR GROUP TRAVEL </h3>
-                        <p>LIFE IS EASY</p>
+                        <p>“I am not the same, having seen the moon shine on the other side of the world” – Mary Anne Radmacher</p>
+                        <img
+                            className="writeImg"
+                            src={image}
+                            alt=""
+                        />
                     </div>
                     <div className="col-md-9 register-right">
                         <div className="tab-content" id="myTabContent">
@@ -102,36 +111,37 @@ function CreateTrip() {
                                 <div className="row register-form">
                                     <div className="col-md-6">
                                         <div className="form-group">
-                                            <input className="writeInput form-control" name="price" type='text' value={formik.values.price} onChange={formik.handleChange} placeholder='price' />
+                                            <input className="form-control" name="price" type='text' value={formik.values.price} onChange={formik.handleChange} placeholder='price' />
                                             {formik.errors.price ? <div className='text-danger'>{formik.errors.price}</div> : null}
                                         </div>
                                         <div className="form-group">
-                                            <input className="writeInput form-control" type={"date"} name="dateStart" value={formik.values.dateStart} onChange={formik.handleChange} placeholder='dateStart' />
+                                            <input className="form-control" type={"date"} name="dateStart" value={formik.values.dateStart} onChange={formik.handleChange} placeholder='dateStart' />
                                             {formik.errors.dateStart ? <div className='text-danger'>{formik.errors.dateStart}</div> : null}
                                         </div>
                                         <div className="form-group">
-                                            <input type={"date"} className="writeInput form-control" name="dateEnd" value={formik.values.dateEnd} onChange={formik.handleChange} placeholder='dateEnd' />
+                                            <input type={"date"} className="form-control" name="dateEnd" value={formik.values.dateEnd} onChange={formik.handleChange} placeholder='dateEnd' />
                                             {formik.errors.dateEnd ? <div className='text-danger'>{formik.errors.dateEnd}</div> : null}
                                         </div>
 
                                     </div>
                                     <div className="col-md-6">
                                         <div className="form-group">
-                                            <input className="writeInput form-control" name="capacite" value={formik.values.capacite} onChange={formik.handleChange} placeholder='capacite' />
+                                            <input className="form-control" name="capacite" value={formik.values.capacite} onChange={formik.handleChange} placeholder='capacite' />
                                             {formik.errors.capacite ? <div className='text-danger'>{formik.errors.capacite}</div> : null}
                                         </div>
                                         <div className="form-group">
-                                            <input className="writeInput form-control" name="destination" value={formik.values.destination} onChange={formik.handleChange} placeholder='destination' />
+                                            <input className="form-control" name="destination" value={formik.values.destination} onChange={formik.handleChange} placeholder='destination' />
                                             {formik.errors.destination ? <div className='text-danger'>{formik.errors.destination}</div> : null}
                                         </div>
                                         <div className="form-group">
-                                            <textarea className="writeInput form-control" name="voyageDescription" value={formik.values.voyageDescription} onChange={formik.handleChange} placeholder='voyageDescription' />
+                                            <textarea className="form-control" name="voyageDescription" value={formik.values.voyageDescription} onChange={formik.handleChange} placeholder='voyageDescription' />
                                             {formik.errors.voyageDescription ? <div className='text-danger'>{formik.errors.voyageDescription}</div> : null}
                                         </div>
                                         <div className="form-group">
-                                            <input type={"file"} className="writeInput form-control" accept={"jpg"} name="file" onChange={e => {setFile(e.target.files[0])}} placeholder='file' />
+                                            <input type={"file"} className="form-control" accept={"jpg"} name="file" onChange={e => {setFile(e.target.files[0]); setImage(URL.createObjectURL(e.target.files[0]))}} placeholder='file' />
                                         </div>
-                                        <Button type={"submit"} className="btnRegister " value="CREATE"/>
+                                        <button type={"submit"} className="button-81 button-form" value="CREATE">Submit</button>
+                                        <Link to={`/groupe/home/${groupeId}`} className="button-81 button-form" value="BACK">Cancel</Link>
                                     </div>
                                 </div>
                             </div>

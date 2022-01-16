@@ -37,7 +37,7 @@ function VoyageUnit({voyage, joined, demandes}) {
     }
 
     function rejoindreButton(voyage) {
-        let button = <Button className="btn btn-primary" onClick={() => ajouterDemande(voyage)}>Rejoindre</Button>
+        let button = <button className="button-81" onClick={() => ajouterDemande(voyage)}>Rejoindre</button>
         joined.map(v => {
             if (voyage.id === v.voyageId){
                 button = <Button className="btn btn-primary" href='#detailVoyage'>Quitter</Button>
@@ -57,7 +57,7 @@ function VoyageUnit({voyage, joined, demandes}) {
                     <img className="postcard__img" src={`data:image/png;base64, ${voyage.image}`} alt="Image Title"/>
                 </a>
                 <div className="postcard__text">
-                    <h1 className="postcard__title blue"><a href="#">{voyage.title}</a></h1>
+                    <h1 className="postcard__title blue"><a href="#">{voyage.destination}</a></h1>
                     <div className="postcard__subtitle small">
                         <time dateTime="2020-05-25 12:00:00">
                             <i className="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
@@ -66,7 +66,7 @@ function VoyageUnit({voyage, joined, demandes}) {
                     <div className="postcard__bar"></div>
                     <div className="postcard__preview-txt">{voyage.descriptionVoyage}</div>
                     <ul className="postcard__tagbox">
-                        <li className="tag__item play blue">
+                        <li>
                             {rejoindreButton(voyage)}
                         </li>
                     </ul>

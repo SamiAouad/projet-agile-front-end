@@ -3,6 +3,12 @@ import {useFormik} from "formik";
 import * as yup from "yup";
 import axios from "axios";
 import {useNavigate, useParams} from "react-router";
+import GroupeHeader from "../Groupe/GroupeHeader";
+import {Button} from "react-bootstrap";
+import {Link} from "react-router-dom";
+import "../css/SignUp.css"
+import img from "../../Images/Image10.jpg";
+import logo from "../../Images/Logo.png";
 
 const api = axios.create({
     baseURL: `http://localhost:5000/post`
@@ -47,6 +53,48 @@ function CreatePost(props) {
     })
 
     return (
+        <div className={"container-fluid"}>
+            <div className="row register">
+                <form className="row" onSubmit={formik.handleSubmit}>
+                    <div className="col-md-3 register-left">
+                        <img src={logo} alt=""/>
+                        <h3>CREATE YOUR GROUP TRAVEL </h3>
+                        <p>LIFE IS EASY</p>
+                        <img
+                            className="writeImg"
+                            src={image}
+                            alt=""
+                        />
+                    </div>
+                    <div className="col-md-9 register-right">
+                        <div className="tab-content" id="myTabContent">
+                            <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 className="register-heading">ADD NEW POST </h3>
+                                <div className="row register-form">
+                                    <div className="col-md-6">
+                                        <div className="form-group">
+                                            <input className="form-control" name="title" type='text' value={formik.values.title} onChange={formik.handleChange} placeholder='title' />
+                                            {formik.errors.title ? <div className='text-danger'>{formik.errors.title}</div> : null}
+                                        </div>
+                                        <div className="form-group">
+                                            <textarea className="form-control" name={"content"} type='text' value={formik.values.content} onChange={formik.handleChange} placeholder='content' />
+                                            {formik.errors.content ? <div className='text-danger'>{formik.errors.content}</div> : null}
+                                        </div>
+                                        <div className="form-group">
+                                            <input type={"file"} className="form-control" accept={"jpg"} name="file" onChange={e => {setFile(e.target.files[0]); setImage(URL.createObjectURL(e.target.files[0]))}} placeholder='file' />
+                                        </div>
+                                        <button type={"submit"} className="button-81">Submit</button>
+                                        <Link to={`/groupe/home/${groupeId}`} className="button-81 " value="BACK">Cancel</Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        /*
         <div className="write">
             <img
                 className="writeImg"
@@ -90,6 +138,7 @@ function CreatePost(props) {
                 </button>
             </form>
         </div>
+        */
         /*
             <div className='col-sm-6 offset-sm-3 text-center form-signin'>
                 <h1>CREATE POST</h1>

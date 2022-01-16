@@ -6,6 +6,7 @@ import * as yup from 'yup'
 import { useFormik } from "formik";
 import '../css/SignUp.css'
 import logo from '../../Images/Logo.png'
+import {Link} from "react-router-dom";
 
 
 const api = axios.create({
@@ -112,7 +113,7 @@ function SignUp(){
                 <div className="col-md-3 register-left">
                     <img src={logo} alt=""/>
                     <h3>Welcome</h3>
-                    <p>You are 30 seconds away from earning your own money!</p>
+                    <p>"A journey of a thousand miles begins with a single step"<br/> – Lao Tzu</p>
                 </div>
                 <div className="col-md-9 register-right">
                     <div className="tab-content" id="myTabContent">
@@ -136,6 +137,8 @@ function SignUp(){
                                         <input id={'email'} type="text" className="form-control" placeholder="email *" value={formik.values.email} onChange={formik.handleChange}/>
                                         {formik.errors.email ? <div className="text-danger">{formik.errors.email}</div> : null}
                                     </div>
+
+
                                 </div>
                                 <div className="col-md-6">
                                     <div className="form-group">
@@ -147,11 +150,13 @@ function SignUp(){
                                         {formik.errors.passwordHash ? <div className="text-danger">{formik.errors.passwordHash}</div> : null}
                                     </div>
                                     <div className="form-group">
-                                        <input id={'passwordconf'} type="password" className="form-control" placeholder="passwordconf *" value={formik.values.passwordconf} onChange={formik.handleChange}/>
+                                        <input id={'passwordconf'} type="password" className="form-control" placeholder="confirm password *" value={formik.values.passwordconf} onChange={formik.handleChange}/>
                                         {formik.errors.passwordconf ? <div className="text-danger">{formik.errors.passwordconf}</div> : null}
                                     </div>
-                                    <input type="submit" className="btnRegister" value="Register"/>
+                                    <input type="submit" className="button-81 button-form" value="Register"/>
+                                    <Link to={"/"} className="button-81 button-form" value="Register">Cancel</Link>
                                 </div>
+
                             </div>
                         </div>
                     </div>

@@ -40,14 +40,15 @@ function VoyageGroupe() {
 
     return (
         <div>
+            {console.log('voyages',voyages)}
+            {console.log('demandes',demandes)}
+            {console.log('joined',joined)}
             <GroupeHeader/>
             {voyages.map(voyage => {
                 return (
-                    <section key={voyage.id} className="dark">
                         <div className="container-fluid py-4">
                             <VoyageUnit voyage={voyage} joined={joined} demandes={demandes}/>
                         </div>
-                    </section>
                 )
             })}
         </div>

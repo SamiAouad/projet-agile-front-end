@@ -22,7 +22,7 @@ const api = axios.create({
 
 
       async function getPostes(){
-          const res = await api.get(`/getPostes/1`)
+          const res = await api.get(`/getPostes/${groupeId}`)
           console.log(res.data)
           setPostes(res.data)
       }
@@ -35,11 +35,9 @@ const api = axios.create({
     <div className="posts row">
         {postes.map(poste => {
             return (
-                <section key={poste.id} className="dark col-12">
                     <div className="container-fluid py-4">
                         <Post poste={poste}/>
                     </div>
-                </section>
             )
         })}
     </div>
