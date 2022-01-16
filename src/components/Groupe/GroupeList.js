@@ -1,9 +1,9 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Button, Container, Row } from "react-bootstrap";
-import { Card } from "react-bootstrap";
-import { CancelDemande, CheckMember } from "./Utilities/GroupeUtilities.js";
+import { CancelDemande} from "./Utilities/GroupeUtilities.js";
+import Groupe from './Groupe.js'
+import Header from "../User/Header";
 
 const api = axios.create({
     baseURL: `http://localhost:5000/`
@@ -49,40 +49,22 @@ function GroupeList(){
     }
 
 
-    function groupeButton(groupe){
-        let user = JSON.parse(localStorage.getItem('userInfo'))
-        if (memberships && CheckMember(groupe, memberships)){
-            return <Button className="btn btn-primary" href={`/groupe/home/${groupe.id}`} >Acceder</Button>
-        }
-        if (demandes && CheckMember(groupe, demandes))
-            return <Button value={groupe.id} className="btn btn-primary" onClick={() => {handleCancel(user.id, groupe.id)}}>Annuler</Button>
-
-        return <Button value={groupe.id} className="btn btn-primary" href={`/joinGroupe/${groupe.id}`}>Rejoindre</Button>
-    }
 
 
     return(
-        
         <div>
-            {groupes.map(groupe => 
-            {
-                {console.log(refresh)}
-                return(
-                    <Container key={groupe.id}>
-                        <div className="row">
-                            <div className="col-4">
-                            <Card>
-                                <Card.Body>
-                                    <Card.Title>{groupe.title}</Card.Title>
-                                    <Card.Text>{groupe.groupeDescription}</Card.Text>
-                                    {groupeButton(groupe)}
-                                </Card.Body>
-                            </Card>
-                            </div>
+            <Header/>
+            <div className="posts row">
+            {groupes.map(groupe => {
+                return (
+                    <section key={groupe.id} className="dark col-12">
+                        <div className="container-fluid py-4">
+                            <Groupe groupe={groupe} memberships={memberships} demandes={demandes}/>
                         </div>
-                    </Container>
+                    </section>
                 )
             })}
+            </div>
         </div>
     )
 }

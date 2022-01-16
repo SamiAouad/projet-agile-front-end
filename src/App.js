@@ -5,7 +5,7 @@ import Home from './components/User/Home';
 import HomeAfterSignIn from './components/User/HomeAfterSignIn';
 import CreateGroupe from './components/Groupe/CreateGroupe';
 import './App.css';
-import CreateTrip from './components/Groupe/CreateTrip';
+import CreateTrip from './components/Voyage/CreateTrip';
 import GroupeHome from './components/Groupe/GroupeHome';
 import GroupeList from './components/Groupe/GroupeList';
 import DemandeGroupe from './components/Groupe/DemandeGroupe';
@@ -13,6 +13,7 @@ import CreatePost from "./components/Post/CreatePost";
 import Comments from "./components/Comment/Comments";
 import Chat from "./components/Groupe/Chat";
 import VoyagesList from "./components/Voyage/VoyagesList";
+import VoyageGroupe from "./components/Voyage/VoyageGroupe";
 
 
 
@@ -26,7 +27,7 @@ function App() {
           <Route path='/Home' element={<HomeAfterSignIn/>} exact/>
           <Route path='/signIn' element={<SignIn/>} exact/>
           <Route path='/createGroupe' element={<CreateGroupe/>} exact/>
-          <Route path='/createTrip' element={<CreateTrip/>} exact/>
+          <Route path='/createTrip/:groupeId' element={<CreateTrip/>} exact/>
           <Route path='/signUp' element={<SignUp/>} exact/>
           <Route path='/listeGroupes' element={<GroupeList/>} exact/>
           <Route path='/groupe/home/:groupeId' element={<GroupeHome/>} exact/>
@@ -34,7 +35,7 @@ function App() {
           <Route path='/createPost/:id' element={<CreatePost/>}/>
           <Route path='/posteCommentaire/:posteId' element={<Comments/>}/>
           <Route path='/groupeChat/:groupeId' element={<Chat/>}/>
-          <Route path='/groupeVoyages/:groupeId' element={<VoyagesList/>}/>
+          <Route path='/groupeVoyages/:groupeId' element={<VoyageGroupe/>}/>
         </Routes>
       </BrowserRouter>
     </div>

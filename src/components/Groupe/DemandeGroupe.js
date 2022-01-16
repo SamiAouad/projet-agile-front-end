@@ -5,6 +5,7 @@ import { useFormik } from "formik";
 import * as yup from 'yup';
 import axios from 'axios';
 import { useParams } from 'react-router';
+import GroupeHeader from "./GroupeHeader";
 
 const api = axios.create({
     baseURL: `http://localhost:5000/groupe`
@@ -41,7 +42,7 @@ function DemandeGroupe() {
 
     return (
         <div>
-            <Header/>
+            <GroupeHeader/>
                     <div>
                     <div className='col-sm-6 offset-sm-3 text-center form-signin'>
                         <h1>DEMANDE DE REJOINDRE</h1>

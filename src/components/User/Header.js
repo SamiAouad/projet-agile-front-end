@@ -1,7 +1,8 @@
 import {Navbar, Container, Nav} from 'react-bootstrap'
 import logo from '../../Images/Logo.png'
 import '../css/Header.css';
-
+import {Link} from "react-router-dom";
+import {Button} from "react-bootstrap";
 import {useNavigate} from 'react-router'
 
 function Header() {
@@ -17,21 +18,19 @@ function Header() {
             <Navbar>
                 <Container  >
                 <Navbar.Brand  href="/"><img src={logo} alt='' className=' navbar-brand'/></Navbar.Brand>
-                <Nav >
+                <Nav>
                 {
                     localStorage.getItem('userInfo') ?
                     <>
-                        <Nav.Link href="/createGroupe">Create Group</Nav.Link>
-                        <Nav.Link href="/listeGroupes">Join Group</Nav.Link>
-                        <Nav.Link onClick={logout}>Log out</Nav.Link>
+                        <Link className="button-81" to="/createGroupe">Create Groupe</Link>
+                        <Link className="button-81" to="/listeGroupes">Groupe List</Link>
+                        <Button className="button-81" onClick={logout}>Log out</Button>
                     </>
                     :
                     <>
-                        <Nav.Link  className='button-40' href="/signIn">Sign-in</Nav.Link>
-                        <Nav.Link className='button-40' href="/signUp">Sign-up</Nav.Link>
+                        <Link className="button-81" to="/signIn">Sign In</Link>
+                        <Link className="button-81" to="/signUp">Sign Up</Link>
                     </>
-                    
-
                 }
                 </Nav>
                 </Container>

@@ -8,6 +8,7 @@ import img3 from "../../Images/Image11.jpg"
 import {useEffect, useState} from "react";
 import {useParams} from "react-router";
 import axios from "axios";
+import '../css/Card.scss'
 
 const api = axios.create({
     baseURL: `http://localhost:5000/post`
@@ -31,10 +32,14 @@ const api = axios.create({
       }, [])
 
       return (
-    <div className="posts">
+    <div className="posts row">
         {postes.map(poste => {
             return (
-                <Post img={poste.image}/>
+                <section key={poste.id} className="dark col-12">
+                    <div className="container-fluid py-4">
+                        <Post poste={poste}/>
+                    </div>
+                </section>
             )
         })}
     </div>

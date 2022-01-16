@@ -4,6 +4,7 @@ import * as yup from "yup";
 import {useFormik} from "formik";
 import axios from "axios";
 import Header from "../User/Header";
+import GroupeHeader from "../Groupe/GroupeHeader";
 
 const api = axios.create({
     baseURL: `http://localhost:5000/groupe`
@@ -48,7 +49,7 @@ function CreateVoyage(props) {
 
     return (
         <div>
-            <Header/>
+            <GroupeHeader/>
             <div>
                 <div className='col-sm-6 offset-sm-3 text-center form-signin'>
                     <h1>CREATE GROUP</h1>
