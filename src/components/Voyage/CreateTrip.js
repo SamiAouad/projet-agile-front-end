@@ -6,7 +6,10 @@ import * as yup from "yup";
 import {useFormik} from "formik";
 import '../css/SignUp.css'
 import {Button} from "react-bootstrap";
+import {Link} from "react-router-dom";
 import GroupeHeader from "../Groupe/GroupeHeader";
+import img from "../../Images/Image10.jpg";
+import logo from "../../Images/Logo.png";
 
 const api = axios.create({
     baseURL: `http://localhost:5000/voyage`
@@ -38,7 +41,7 @@ function CreateTrip() {
         if (res.data == null)
             console.log('creation de voyage impossible')
         else
-            navigate(`/groupe/home/${res.data}`)
+            navigate(`/groupeVoyages/${groupeId}`)
     }
     const validationSchema = yup.object({
         price:  yup.number().required(),
@@ -89,14 +92,12 @@ function CreateTrip() {
 
     return (
         <div className={"container-fluid"}>
-            <div className={"row"}>
-                <GroupeHeader/>
-            </div>
             <div className="row register">
                 <form className="row" onSubmit={formik.handleSubmit}>
                     <div className="col-md-3 register-left">
+                        <img src={logo} alt=""/>
                         <h3>CREATE YOUR GROUP TRAVEL </h3>
-                        <p>LIFE IS EASY</p>
+                        <p>“I am not the same, having seen the moon shine on the other side of the world” – Mary Anne Radmacher</p>
                         <img
                             className="writeImg"
                             src={image}
@@ -139,7 +140,8 @@ function CreateTrip() {
                                         <div className="form-group">
                                             <input type={"file"} className="form-control" accept={"jpg"} name="file" onChange={e => {setFile(e.target.files[0]); setImage(URL.createObjectURL(e.target.files[0]))}} placeholder='file' />
                                         </div>
-                                        <Button type={"submit"} className="button-81 " value="CREATE">Submit</Button>
+                                        <button type={"submit"} className="button-81 button-form" value="CREATE">Submit</button>
+                                        <Link to={`/groupe/home/${groupeId}`} className="button-81 button-form" value="BACK">Cancel</Link>
                                     </div>
                                 </div>
                             </div>

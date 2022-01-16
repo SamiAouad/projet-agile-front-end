@@ -4,6 +4,9 @@ import axios from 'axios';
 import { useFormik } from "formik";
 import * as yup from 'yup';
 import '../css/postForm.css'
+import img from "../../Images/Image10.jpg";
+import logo from "../../Images/Logo.png";
+import add from '../../Images/add.png'
 
 
 const api = axios.create({
@@ -13,6 +16,7 @@ const api = axios.create({
 function CreateGroupe() {
     let navigate = useNavigate();
     let [file, setFile] = useState();
+    let [image, setImage] = useState();
 
     const onSubmit = async () => {
         let item = new FormData()
@@ -31,7 +35,7 @@ function CreateGroupe() {
             navigate(`/groupe/home/${res.data}`)
     }
     const validationSchema = yup.object({
-        title:  yup.string().max(15, 'Must be less than 15 characters').required('title is required'),
+        title:  yup.string().max(20, 'Must be less than 20 characters').required('title is required'),
         groupeDescription:  yup.string().min(10, 'Must be more than 10 characters').required('description is required')
     })
 
@@ -78,15 +82,21 @@ function CreateGroupe() {
         <div className="container-fluid register">
         <form className="row" onSubmit={formik.handleSubmit}>
             <div className="col-md-3 register-left">
-               
+                <img src={logo} alt=""/>
                 <h3>CREATE YOUR GROUP TRAVEL </h3>
                 <p>LIFE IS EASY</p>
+                <img
+                    className="writeImg"
+                    src={image}
+                    alt=""
+                />
             </div>
             <div className="col-md-9 register-right">
                 <div className="tab-content" id="myTabContent">
                     <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 className="register-heading">CREATE YOUR COMMUNITY </h3>
                         <div className="row register-form">
+                            <div className={"col-md-3"}></div>
                             <div className="col-md-6">
                                 <div className="form-group">
                                 <input className="writeInput" name="title" type='text' value={formik.values.title} onChange={formik.handleChange} placeholder='title of the groupe' className='form-control' />
@@ -96,19 +106,18 @@ function CreateGroupe() {
                                 <textarea className="writeInput" name="groupeDescription" value={formik.values.groupeDescription} onChange={formik.handleChange} placeholder='description' className='form-control' />
                                 {formik.errors.groupeDescription ? <div className='text-danger'>{formik.errors.groupeDescription}</div> : null}
                                 </div>
-                                
-                                <div className="form-group">
-                                <input type='file' className="fileInput" id='file' accept="jpg" onChange={e => setFile(e.target.files[0])}></input>
+                                <div className="form-group fileInput">
+                                    <label for={"file"} className={'image-add'}>
+                                        <p>Add picture</p>
+                                        <img className={'image-add'} src={add}/>
+                                    </label>
+                                    <input type='file' id='file' accept="jpg" onChange={e => {
+                                        setFile(e.target.files[0]);
+                                        setImage(URL.createObjectURL(e.target.files[0]))
+                                    }}></input>
+
                                 </div>
-                            </div>
-                            <div className="col-md-6">
-                                <div className="form-group">
-                                </div>
-                                <div className="form-group">
-                                </div>
-                                <div className="form-group">
-                                </div>
-                                <input type="submit" className="btnRegister " value="CREATE"/>
+                                <input type="submit" className="button-81 button-form" value="CREATE"/>
                             </div>
                         </div>
                     </div>

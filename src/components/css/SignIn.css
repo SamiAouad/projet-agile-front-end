@@ -125,7 +125,7 @@ a {
   .loginButton {
     margin-top: 20px;
     cursor: pointer;
-    background-color: #FF4C29;
+    background-color: #345b63;
     color: white;
     padding: 10px;
     border: none;
@@ -137,7 +137,7 @@ a {
     position: absolute;
     top: 60px;
     right: 20px;
-    background-color: #152D35;
+    background-color: #345b63;
     cursor: pointer;
     padding: 10px;
     border: none;

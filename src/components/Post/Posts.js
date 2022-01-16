@@ -22,7 +22,7 @@ const api = axios.create({
 
 
       async function getPostes(){
-          const res = await api.get(`/getPostes/1`)
+          const res = await api.get(`/getPostes/${groupeId}`)
           console.log(res.data)
           setPostes(res.data)
       }

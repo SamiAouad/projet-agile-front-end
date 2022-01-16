@@ -33,8 +33,6 @@ function App() {
           <Route path='/joinGroupe/:groupeId' element={<DemandeGroupe/>} exact/>
           <Route path='/createPost/:id' element={<CreatePost/>}/>
           <Route path='/posteCommentaire/:posteId' element={<Comments/>}/>
-          <Route path='/groupeVoyages/:groupeId' element={<VoyagesList/>}/>
-          <Route path='/groupeChat/:groupeId' element={<Chat/>}/>
           <Route path='/groupeVoyages/:groupeId' element={<VoyageGroupe/>}/>
         </Routes>
       </BrowserRouter>

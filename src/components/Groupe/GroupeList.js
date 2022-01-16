@@ -58,11 +58,9 @@ function GroupeList(){
             <div className="posts row">
             {groupes.map(groupe => {
                 return (
-                    <section key={groupe.id} className="dark col-12">
                         <div className="container-fluid py-4">
                             <Groupe groupe={groupe} memberships={memberships} demandes={demandes}/>
                         </div>
-                    </section>
                 )
             })}
             </div>

@@ -15,16 +15,25 @@ function Header() {
     return (
         <div>
             
-            <Navbar>
+            <Navbar className={"fixed-top"}>
                 <Container  >
-                <Navbar.Brand  href="/"><img src={logo} alt='' className=' navbar-brand'/></Navbar.Brand>
+                    {
+                        localStorage.getItem('userInfo')?
+                            <>
+                                <Navbar.Brand  href="/Home"><img src={logo} alt='' className=' navbar-brand'/></Navbar.Brand>
+                            </>
+                            :
+                            <>
+                                <Navbar.Brand  href="/"><img src={logo} alt='' className=' navbar-brand'/></Navbar.Brand>
+                            </>
+                    }
                 <Nav>
                 {
                     localStorage.getItem('userInfo') ?
                     <>
                         <Link className="button-81" to="/createGroupe">Create Groupe</Link>
                         <Link className="button-81" to="/listeGroupes">Groupe List</Link>
-                        <Button className="button-81" onClick={logout}>Log out</Button>
+                        <button className="button-81" onClick={logout}>Log out</button>
                     </>
                     :
                     <>
