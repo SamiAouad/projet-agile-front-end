@@ -15,7 +15,7 @@ function Header() {
     return (
         <div>
             
-            <Navbar className={"fixed-top"}>
+            <Navbar className={""}>
                 <Container  >
                     {
                         localStorage.getItem('userInfo')?
