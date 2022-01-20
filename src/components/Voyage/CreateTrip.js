@@ -1,14 +1,10 @@
 import React, {useState} from "react";
 import {useNavigate, useParams} from 'react-router';
 import axios from 'axios';
-import Header from "../User/Header";
 import * as yup from "yup";
 import {useFormik} from "formik";
 import '../css/SignUp.css'
-import {Button} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import GroupeHeader from "../Groupe/GroupeHeader";
-import img from "../../Images/Image10.jpg";
 import logo from "../../Images/Logo.png";
 
 const api = axios.create({

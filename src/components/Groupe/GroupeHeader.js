@@ -90,6 +90,8 @@ function GroupeHeader(props) {
                                             <Link className="dropdown-item" to={"#"}>Delete Post</Link>
                                         </Dropdown.Menu>
                                     </Dropdown>
+                                    <Link className="button-81" to={`/groupe/admin/users/${groupeId}`}>Dashboard</Link>
+
                                 </>
                                 :
                                 <>
@@ -113,6 +115,7 @@ function GroupeHeader(props) {
                                         </Dropdown.Menu>
                                     </Dropdown>
                                     <Link className="button-81" to={`/createPost/${groupeId}`}>Post</Link>
+
                                 </>
                         }
                     </Nav>

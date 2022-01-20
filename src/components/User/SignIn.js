@@ -4,9 +4,11 @@ import '../css/SignIn.css';
 import axios from 'axios';
 import * as yup from 'yup';
 import Header from "./Header";
+import {useState} from "react";
 
 import { useFormik } from "formik";
 import img from '../../Images/Image11.jpg'
+import {Link} from "react-router-dom";
 
 
 const api = axios.create({
@@ -17,6 +19,7 @@ const api = axios.create({
 
 function SignIn(){
     const navigate = useNavigate();
+    const [error, setError] = useState('')
 
     const validationSchema = yup.object({
         username: yup.string('username must be a string').required('username is required'),
@@ -26,17 +29,18 @@ function SignIn(){
         console.log(formik.values)
         api.post('/signIn', formik.values).then(res => {
             if (res.data === false){
-                console.log('connection impossible')
+                setError('username or password incorrect')
                 return
             }
             else{
                 //localStorage.setItem('userInfo', JSON.stringify(res.data))
                 let userInfo = {
                     id: res.data.id,
-                    username: res.data.username
+                    username: res.data.username,
+                    image: res.data.image
                 }
                 localStorage.setItem('userInfo', JSON.stringify(userInfo))
-                navigate('/Home')
+                navigate('/')
             }
         })
     }
@@ -89,7 +93,8 @@ function SignIn(){
         <br />
         <button className="loginButton"type="submit">Login</button>
       </form>
-        <button className="loginRegisterButton">Register</button>
+        <Link className="loginRegisterButton" to={"/SignUp"}>Register</Link>
+             <div className="text-danger">{error}</div>
     </div>
         </div>
     )

@@ -50,7 +50,7 @@ function Groupe(groupe) {
     }
     let handleCancel = (userId, groupeId) => {
         CancelDemande(userId, groupeId).then(() => {
-            setRefresh(!refresh)
+            window.location.reload(true)
         })
     }
     return (

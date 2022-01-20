@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import '../css/SignUp.css'
 import logo from '../../Images/Logo.png'
 import {Link} from "react-router-dom";
+import add from "../../Images/add.png";
 
 
 const api = axios.create({
@@ -15,6 +16,8 @@ const api = axios.create({
 
 function SignUp(){
     const navigate = useNavigate();
+    const [file, setFile] = useState()
+    const [image, setImage] = useState()
  
     const validationSchema = yup.object({
         firstname: yup.string('firstname must be a string').required('firstname is required'),
@@ -28,6 +31,15 @@ function SignUp(){
 
     const onSubmit = async () => {
         console.log('Onsubmit')
+        let item = new FormData();
+        item.append('firstname', formik.values.firstname)
+        item.append('lastname', formik.values.lastname)
+        item.append('username', formik.values.username)
+        item.append('mobile', formik.values.mobile)
+        item.append('email', formik.values.email)
+        item.append('passwordHash', formik.values.passwordHash)
+        item.append('file', file)
+        /*
         let item = {
             firstname: formik.values.firstname,
             lastname: formik.values.lastname,
@@ -35,7 +47,7 @@ function SignUp(){
             mobile: formik.values.mobile,
             email: formik.values.email,
             passwordHash: formik.values.passwordHash,
-        }
+        }*/
         api.post('/signUp', item).then(res => {
             if (res.data == null)
             console.log('sign up impossible')
@@ -114,6 +126,11 @@ function SignUp(){
                     <img src={logo} alt=""/>
                     <h3>Welcome</h3>
                     <p>"A journey of a thousand miles begins with a single step"<br/> – Lao Tzu</p>
+                    <img
+                        className="writeImg"
+                        src={image}
+                        alt=""
+                    />
                 </div>
                 <div className="col-md-9 register-right">
                     <div className="tab-content" id="myTabContent">
@@ -152,6 +169,17 @@ function SignUp(){
                                     <div className="form-group">
                                         <input id={'passwordconf'} type="password" className="form-control" placeholder="confirm password *" value={formik.values.passwordconf} onChange={formik.handleChange}/>
                                         {formik.errors.passwordconf ? <div className="text-danger">{formik.errors.passwordconf}</div> : null}
+                                    </div>
+                                    <div className="form-group fileInput">
+                                        <label htmlFor={"file"} className={'image-add'}>
+                                            <p>Add picture</p>
+                                            <img className={'image-add'} src={add}/>
+                                        </label>
+                                        <input type='file' id='file' accept="jpg" onChange={e => {
+                                            setFile(e.target.files[0]);
+                                            setImage(URL.createObjectURL(e.target.files[0]))
+                                        }}></input>
+
                                     </div>
                                     <input type="submit" className="button-81 button-form" value="Register"/>
                                     <Link to={"/"} className="button-81 button-form" value="Register">Cancel</Link>
