@@ -49,7 +49,7 @@ export default function Post({poste}) {
               <h1 className="postcard__title blue"><a href="#">{poste.title}</a></h1>
               <div className="postcard__subtitle small">
                 <time dateTime="2020-05-25 12:00:00">
-                  <i className="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+                  <i className="fas fa-calendar-alt mr-2"></i>{poste.username}
                 </time>
               </div>
               <div className="postcard__bar"></div>

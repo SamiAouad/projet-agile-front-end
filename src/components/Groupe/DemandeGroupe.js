@@ -20,8 +20,10 @@ function DemandeGroupe() {
         let item = new FormData()
         let userId = JSON.parse(localStorage.getItem('userInfo')).id
         item.append('motivation', formik.values.motivation)
+        item.append('userId', userId)
+        item.append('groupeId', params.groupeId)
         
-        api.post(`/joinGroupe/${userId}/${params.groupeId}`, item).then(res => {
+        api.post(`/joinGroupe/`, item).then(res => {
             if (res.data == null)
                 console.log("erreur de l'envoie du demande")
             else

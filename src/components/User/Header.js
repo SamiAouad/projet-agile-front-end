@@ -2,38 +2,37 @@ import {Navbar, Container, Nav} from 'react-bootstrap'
 import logo from '../../Images/Logo.png'
 import '../css/Header.css';
 import {Link} from "react-router-dom";
-import {Button} from "react-bootstrap";
 import {useNavigate} from 'react-router'
+import {useEffect, useState} from "react";
 
 function Header() {
     const navigate = useNavigate();
+    const [image, setImage] = useState() ;
+
+    useEffect(() => {
+        if(localStorage.getItem('userInfo'))
+            setImage(JSON.parse(localStorage.getItem('userInfo')).image)
+    },[])
 
     const logout = () => {
-        localStorage.removeItem('userInfo')
-        navigate('/')
+        localStorage.clear()
+        navigate('/HomeBeforeSignIn')
     }
+
     return (
         <div>
             
-            <Navbar className={"fixed-top"}>
+            <Navbar className={""}>
                 <Container  >
-                    {
-                        localStorage.getItem('userInfo')?
-                            <>
-                                <Navbar.Brand  href="/Home"><img src={logo} alt='' className=' navbar-brand'/></Navbar.Brand>
-                            </>
-                            :
-                            <>
-                                <Navbar.Brand  href="/"><img src={logo} alt='' className=' navbar-brand'/></Navbar.Brand>
-                            </>
-                    }
-                <Nav>
+                    <Navbar.Brand  href="/"><img src={logo} alt='' className=' navbar-brand'/></Navbar.Brand>
+                    <Nav>
                 {
                     localStorage.getItem('userInfo') ?
                     <>
                         <Link className="button-81" to="/createGroupe">Create Groupe</Link>
                         <Link className="button-81" to="/listeGroupes">Groupe List</Link>
                         <button className="button-81" onClick={logout}>Log out</button>
+                        <Navbar.Brand  href="/"><img src={`data:image/png;base64, ${image}`} alt='' className='navbar-brand rounded-circle'/></Navbar.Brand>
                     </>
                     :
                     <>

@@ -18,7 +18,7 @@
 
 .nav-link{
     top: 3px;
-    margin-left: 5mm;
+    margin-left: 10mm;
 }
 
 
@@ -64,7 +64,7 @@
 }
 
 .button-81 {
-    margin-left: 50px;
+    margin: 50px;
     background-color: #fff;
     border: 0 solid #e2e8f0;
     border-radius: 1.5rem;

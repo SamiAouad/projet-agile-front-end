@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button} from "react-bootstrap";
 import {useParams} from "react-router";
 import axios from "axios";
+import {formatDate} from "./Utilities";
 
 const api = axios.create({
     baseURL: `http://localhost:5000`
@@ -16,13 +17,18 @@ function VoyageUnit({voyage, joined, demandes}) {
 
     function annulerVoyage(voyage){
         api.delete(`voyage/deleteVoyages/${voyage.id}`).then(() => {
-            setRefresh(!refresh)
+            window.location.reload(true)
         })
     }
 
     function annulerDemande(voyage){
-        api.delete(`voyage/deleteDemandeVoyages/${voyage.id}/${userId}`).then(() => {
-            setRefresh(!refresh)
+        api.delete(`voyage/deleteDemandeVoyages/${voyage.id}/${userId}`).then(res => {
+            if (res === false){
+                console.log('an error has occured')
+            }
+            else{
+                window.location.reload(true)
+            }
         })
     }
 
@@ -32,7 +38,7 @@ function VoyageUnit({voyage, joined, demandes}) {
         item.append('voyageId', voyage.id)
 
         api.post('voyage/ajouterDemandeVoyages', item).then(() => {
-            setRefresh(!refresh)
+            window.location.reload(true)
         })
     }
 
@@ -60,7 +66,7 @@ function VoyageUnit({voyage, joined, demandes}) {
                     <h1 className="postcard__title blue"><a href="#">{voyage.destination}</a></h1>
                     <div className="postcard__subtitle small">
                         <time dateTime="2020-05-25 12:00:00">
-                            <i className="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+                            <i className="fas fa-calendar-alt mr-2"></i>{formatDate(voyage.dateStart)}
                         </time>
                     </div>
                     <div className="postcard__bar"></div>

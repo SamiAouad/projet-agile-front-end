@@ -2,11 +2,6 @@ import {Navbar, Container, NavDropdown, Nav , Carousel} from 'react-bootstrap'
 import img1 from '../../Images/Image6.jpg'
 import img2 from '../../Images/Image7.jpg'
 import img3 from '../../Images/Image8.jpg'
-import {useEffect, useState} from "react";
-import {useParams} from "react-router";
-import axios from "axios";
-import Posts from "../Post/Posts";
-import Post from "../Post/Post";
 
 
 function Body() {
