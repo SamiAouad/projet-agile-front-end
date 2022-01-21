@@ -8,7 +8,6 @@ const api = axios.create({
     baseURL: `http://localhost:5000/`
 })
 function Trip({trip, groupeId}) {
-    const navigate = useNavigate()
 
     function annulerTrip(trip){
         api.delete(`/voyage/deleteVoyage/${trip.id}`).then(res => {

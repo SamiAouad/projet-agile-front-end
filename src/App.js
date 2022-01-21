@@ -13,8 +13,10 @@ import Comments from "./components/Comment/Comments";
 import VoyageGroupe from "./components/Voyage/VoyageGroupe";
 import AdminUser from "./components/Dashboard/AdminUser";
 import AdminDemandeGroupe from "./components/Dashboard/AdminDemandeGroupe";
-import AdminTrip from "./components/Groupe/AdminTrip";
+import AdminTrip from "./components/Dashboard/AdminTrip";
 import UpdateVoyage from "./components/Voyage/UpdateVoyage";
+import AdminPost from "./components/Dashboard/AdminPost";
+import Chat from "./components/Chat/Chat";
 
 
 
@@ -41,6 +43,8 @@ function App() {
           <Route path={'/groupe/admin/trips/:groupeId'} element={<AdminTrip/>}/>
           <Route path={'/groupe/admin/voyage/:voyageId'} element={<UpdateVoyage/>}/>
           <Route path={'/groupe/admin/voyage/details/:voyageId'} element={<UpdateVoyage/>}/>
+          <Route path={'/groupe/admin/postes/:groupeId'} element={<AdminPost/>}/>
+          <Route path={'/groupe/chat/:groupeId'} element={<Chat/>}/>
         </Routes>
       </BrowserRouter>
     </div>

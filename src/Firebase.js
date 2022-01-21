@@ -1,5 +1,6 @@
 import React from 'react';
-import firebase from "firebase/compat";
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
 
 const firebaseApp = firebase.initializeApp({
     apiKey: "AIzaSyB1HocTaAv7Qnz6JQ10UnGFuh1Dnw9XDz4",
