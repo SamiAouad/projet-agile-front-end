@@ -60,62 +60,18 @@ function GroupeHeader(props) {
                                     </div>
                                 </div>*/
                                 <>
-                                <Dropdown className={"myDropDown"}>
-                                    <Dropdown.Toggle variant="light" className="dropdown-basic">
-                                        Groups
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Link className="dropdown-item" to="/createGroupe">Create Groupe</Link>
-                                        <Link className="dropdown-item" to="/listeGroupes">Groupe List</Link>
-                                        <Link className="dropdown-item" to="#">Delete User</Link>
-                                        <Button className="dropdown-item" onClick={logout}>Log out</Button>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                                <Dropdown>
-                                    <Dropdown.Toggle variant="light" className="dropdown-basic">
-                                        Trip
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Link className="dropdown-item" to={`/groupeVoyages/${groupeId}`}>Trips</Link>
-                                        <Link className="dropdown-item" to={`/createTrip/${groupeId}`}>Create Trip</Link>
-                                        <Link className="dropdown-item" to="#">Delete Trip</Link>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                                    <Dropdown>
-                                        <Dropdown.Toggle variant="light" className="dropdown-basic">
-                                            Posts
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu>
-                                            <Link className="dropdown-item" to={`/createPost/${groupeId}`}>Post</Link>
-                                            <Link className="dropdown-item" to={"#"}>Delete Post</Link>
-                                        </Dropdown.Menu>
-                                    </Dropdown>
+                                    <Link className="button-81" to={`/groupe/chat/${groupeId}`}>Chat</Link>
+                                    <Link className="button-81" to={`/createPost/${groupeId}`}>Post</Link>
+                                    <Link className="button-81" to={`/groupeVoyages/${groupeId}`}>Join Trip</Link>
                                     <Link className="button-81" to={`/groupe/admin/users/${groupeId}`}>Dashboard</Link>
-
+                                    <button className={'button-81'} onClick={logout}>Logout</button>
                                 </>
                                 :
                                 <>
-                                    <Dropdown>
-                                        <Dropdown.Toggle variant="light" className="dropdown-basic">
-                                            Groups
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu>
-                                            <Link className="dropdown-item" to="/createGroupe">Create Groupe</Link>
-                                            <Link className="dropdown-item" to="/listeGroupes">Groupe List</Link>
-                                            <Button className="dropdown-item" onClick={logout}>Log out</Button>
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                    <Dropdown>
-                                        <Dropdown.Toggle variant="light" className="dropdown-basic">
-                                            Trip
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu>
-                                            <Link className="dropdown-item" to={`/groupeVoyages/${groupeId}`}>Trips</Link>
-                                            <Link className="dropdown-item" to={`/createTrip/${groupeId}`}>Create Trip</Link>
-                                        </Dropdown.Menu>
-                                    </Dropdown>
+                                    <Link className="button-81" to={`/groupe/chat/${groupeId}`}>Chat</Link>
                                     <Link className="button-81" to={`/createPost/${groupeId}`}>Post</Link>
-
+                                    <Link className="button-81" to={`/groupeVoyages/${groupeId}`}>Join Trip</Link>
+                                    <button className={'button-81'} onClick={logout}>Logout</button>
                                 </>
                         }
                     </Nav>

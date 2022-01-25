@@ -1,3 +1,7 @@
+.myNavbar{
+    display: flex;
+    align-items: center;
+}
 .fixed-top{
     position: fixed;
     top: 0;

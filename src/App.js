@@ -17,6 +17,7 @@ import AdminTrip from "./components/Dashboard/AdminTrip";
 import UpdateVoyage from "./components/Voyage/UpdateVoyage";
 import AdminPost from "./components/Dashboard/AdminPost";
 import Chat from "./components/Chat/Chat";
+import AdminDemandeVoyage from "./components/Dashboard/AdminDemandeVoyage";
 
 
 
@@ -45,6 +46,7 @@ function App() {
           <Route path={'/groupe/admin/voyage/details/:voyageId'} element={<UpdateVoyage/>}/>
           <Route path={'/groupe/admin/postes/:groupeId'} element={<AdminPost/>}/>
           <Route path={'/groupe/chat/:groupeId'} element={<Chat/>}/>
+          <Route path={'/voyage/demande/:groupeId/:voyageId'} element={<AdminDemandeVoyage/>}/>
         </Routes>
       </BrowserRouter>
     </div>

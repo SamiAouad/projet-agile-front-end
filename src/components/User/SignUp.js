@@ -7,7 +7,6 @@ import { useFormik } from "formik";
 import '../css/SignUp.css'
 import logo from '../../Images/Logo.png'
 import {Link} from "react-router-dom";
-import add from "../../Images/add.png";
 
 
 const api = axios.create({
@@ -18,6 +17,7 @@ function SignUp(){
     const navigate = useNavigate();
     const [file, setFile] = useState()
     const [image, setImage] = useState()
+    const [error, setError] = useState('')
  
     const validationSchema = yup.object({
         firstname: yup.string('firstname must be a string').required('firstname is required'),
@@ -49,8 +49,10 @@ function SignUp(){
             passwordHash: formik.values.passwordHash,
         }*/
         api.post('/signUp', item).then(res => {
-            if (res.data == null)
-            console.log('sign up impossible')
+            if (res.data === false){
+                setError('Email or username is already in use please enter a valid email or username')
+            }
+
             else
            
                 navigate('/')
@@ -136,9 +138,11 @@ function SignUp(){
                     <div className="tab-content" id="myTabContent">
                         <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <h3 className="register-heading">Apply as new triper</h3>
+
                             <div className="row register-form">
                                 <div className="col-md-6">
                                     <div className="form-group">
+                                        <div className="text-danger">{error}</div>
                                         <input id={'firstname'} type="text" className="form-control" placeholder="First name *" value={formik.values.firstname} onChange={formik.handleChange}/>
                                         {formik.errors.firstname ? <div className="text-danger">{formik.errors.firstname}</div> : null}
                                     </div>
@@ -170,19 +174,16 @@ function SignUp(){
                                         <input id={'passwordconf'} type="password" className="form-control" placeholder="confirm password *" value={formik.values.passwordconf} onChange={formik.handleChange}/>
                                         {formik.errors.passwordconf ? <div className="text-danger">{formik.errors.passwordconf}</div> : null}
                                     </div>
-                                    <div className="form-group fileInput">
-                                        <label htmlFor={"file"} className={'image-add'}>
-                                            <p>Add picture</p>
-                                            <img className={'image-add'} src={add}/>
-                                        </label>
+                                    <div className={'form-group'}>
                                         <input type='file' id='file' accept="jpg" onChange={e => {
                                             setFile(e.target.files[0]);
                                             setImage(URL.createObjectURL(e.target.files[0]))
                                         }}></input>
-
                                     </div>
-                                    <input type="submit" className="button-81 button-form" value="Register"/>
-                                    <Link to={"/"} className="button-81 button-form" value="Register">Cancel</Link>
+                                    <div className={'form-group'}>
+                                        <input type="submit" className="button-81 button-form" value="Register"/>
+                                        <Link to={"/"} className="button-81 button-form" value="Register">Cancel</Link>
+                                    </div>
                                 </div>
 
                             </div>

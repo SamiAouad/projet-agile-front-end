@@ -83,8 +83,10 @@ function CreatePost(props) {
                                         <div className="form-group">
                                             <input type={"file"} className="form-control" accept={"jpg"} name="file" onChange={e => {setFile(e.target.files[0]); setImage(URL.createObjectURL(e.target.files[0]))}} placeholder='file' />
                                         </div>
-                                        <button type={"submit"} className="button-81">Submit</button>
-                                        <Link to={`/groupe/home/${groupeId}`} className="button-81 " value="BACK">Cancel</Link>
+                                        <div className={'form-group'}>
+                                            <button type={"submit"} className="button-81 button-form">Submit</button>
+                                            <Link to={`/groupe/home/${groupeId}`} className="button-81 button-form" value="BACK">Cancel</Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

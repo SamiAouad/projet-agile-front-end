@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from "axios";
 import {useNavigate} from "react-router";
+import '../css/SignUp.css'
 const api = axios.create({
     baseURL: `http://localhost:5000/groupe`
 })
@@ -52,12 +53,12 @@ function Demande({demande}) {
                     <div className="postcard__bar"></div>
                     <div className="postcard__preview-txt">{demande.motivation}</div>
                     <ul className="postcard__tagbox">
-                        <li className="tag__item play blue">
-                            <button onClick={() => {accepterDemande(demande)}}><i className="fas fa-play mr-2"></i>Accept</button>
+                        <li >
+                            <button className={'button-81'} onClick={() => {accepterDemande(demande)}}><i className="fas fa-play mr-2"></i>Accept</button>
                         </li>
 
-                        <li className="tag__item play blue">
-                            <button onClick={() => refuserDemande(demande)}><i className="fas fa-play mr-2"></i>Refuse</button>
+                        <li>
+                            <button className={'button-81'} onClick={() => refuserDemande(demande)}><i className="fas fa-play mr-2"></i>Refuse</button>
                         </li>
 
                     </ul>

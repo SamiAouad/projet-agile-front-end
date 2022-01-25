@@ -42,7 +42,10 @@ function Trip({trip, groupeId}) {
                         </li>
 
                         <li>
-                            <Link to={`/groupe/admin/voyage/details/${trip.id}`} className={'button-81'}>Detail</Link>
+                            <Link to={`/groupe/admin/voyage/details/${trip.id}`}><button className={'button-81'}>Detail</button></Link>
+                        </li>
+                        <li>
+                            <Link to={`/voyage/demande/${groupeId}/${trip.id}`} ><button className={'button-81'}>Demandes</button></Link>
                         </li>
 
                     </ul>

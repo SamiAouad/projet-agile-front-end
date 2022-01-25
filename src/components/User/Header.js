@@ -29,10 +29,12 @@ function Header() {
                 {
                     localStorage.getItem('userInfo') ?
                     <>
-                        <Link className="button-81" to="/createGroupe">Create Groupe</Link>
-                        <Link className="button-81" to="/listeGroupes">Groupe List</Link>
-                        <button className="button-81" onClick={logout}>Log out</button>
-                        <Navbar.Brand  href="/"><img src={`data:image/png;base64, ${image}`} alt='' className='navbar-brand rounded-circle'/></Navbar.Brand>
+                        <div className={'myNavbar'}>
+                            <Link className="button-81" to="/createGroupe">Create Groupe</Link>
+                            <Link className="button-81" to="/listeGroupes">Groupe List</Link>
+                            <button className="button-81" onClick={logout}>Log out</button>
+                            <Navbar.Brand  href="/"><img src={`data:image/png;base64, ${image}`} alt='' className='navbar-brand rounded-circle'/></Navbar.Brand>
+                        </div>
                     </>
                     :
                     <>

@@ -18,7 +18,7 @@ function BodyAfterSignIn() {
 
 
     async function getPostes(){
-        const res = await api.get(`/getAll`)
+        const res = await api.get(`/getUserPostes/${userId}`)
         console.log(res.data)
         setPostes(res.data)
     }

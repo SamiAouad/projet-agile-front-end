@@ -107,10 +107,7 @@ function CreateGroupe() {
                                 {formik.errors.groupeDescription ? <div className='text-danger'>{formik.errors.groupeDescription}</div> : null}
                                 </div>
                                 <div className="form-group fileInput">
-                                    <label for={"file"} className={'image-add'}>
-                                        <p>Add picture</p>
-                                        <img className={'image-add'} src={add}/>
-                                    </label>
+
                                     <input type='file' id='file' accept="jpg" onChange={e => {
                                         setFile(e.target.files[0]);
                                         setImage(URL.createObjectURL(e.target.files[0]))
