@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import { CancelDemande} from "./Utilities/GroupeUtilities.js";
 import Groupe from './Groupe.js'
 import Header from "../User/Header";
+import '../css/SignUp.css'
+
 
 const api = axios.create({
     baseURL: `http://localhost:5000/`

@@ -37,7 +37,7 @@ function AdminDemandeVoyage() {
             <br/> <br/>
             <div className="card col-10 offset-2">
                 <h3 className="card-header text-center font-weight-bold text-uppercase py-4">
-                    Editable table
+                    Joins Trip Requests
                 </h3>
                 <div className="card-body">
                     <div id="table" className="table-editable">

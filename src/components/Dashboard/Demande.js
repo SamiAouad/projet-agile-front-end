@@ -39,7 +39,7 @@ function Demande({demande}) {
     }
     return (
         <div>
-            <article className="postcard dark blue">
+            <article className="postcard dark blue demande-groupe">
                 <a className="postcard__img_link" href="#">
                     <img className="postcard__img" src={`data:image/png;base64, ${demande.image}`} alt="Image Title"/>
                 </a>

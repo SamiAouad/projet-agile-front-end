@@ -43,15 +43,15 @@ function VoyageUnit({voyage, joined, demandes}) {
     }
 
     function rejoindreButton(voyage) {
-        let button = <button className="button-81" onClick={() => ajouterDemande(voyage)}>Rejoindre</button>
+        let button = <button className="button-81" onClick={() => ajouterDemande(voyage)}>Join</button>
         joined.map(v => {
             if (voyage.id === v.voyageId){
-                button = <Button className="btn btn-primary" href='#detailVoyage'>Quitter</Button>
+                button = <button className="button-81" href='#detailVoyage'>Quitter</button>
             }
         })
         demandes.map(v => {
             if (voyage.id === v.voyageId){
-                button =  <Button className="btn btn-primary" onClick={() => annulerDemande(voyage)}>Annuler Demande</Button>
+                button =  <button className="button-81" onClick={() => annulerDemande(voyage)}>Cancel Demand</button>
             }
         })
         return button

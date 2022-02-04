@@ -106,7 +106,7 @@ function CreateGroupe() {
                                 <textarea className="writeInput" name="groupeDescription" value={formik.values.groupeDescription} onChange={formik.handleChange} placeholder='description' className='form-control' />
                                 {formik.errors.groupeDescription ? <div className='text-danger'>{formik.errors.groupeDescription}</div> : null}
                                 </div>
-                                <div className="form-group fileInput">
+                                <div className="form-group">
 
                                     <input type='file' id='file' accept="jpg" onChange={e => {
                                         setFile(e.target.files[0]);

@@ -7,7 +7,7 @@ import logo from "../../Images/Logo.png";
 import {Link} from "react-router-dom";
 import '../css/Header.css'
 const api = axios.create({
-    baseURL: `http://localhost:5000/user`
+    baseURL: `http://localhost:5000/`
 })
 
 
@@ -18,10 +18,22 @@ function GroupeHeader(props) {
     let id = props.id
     let groupeId = params.groupeId
 
+    function quitterGroupe(){
+        let user = JSON.parse(localStorage.getItem('userInfo'))
+        api.delete(`groupe/deleteUser/${groupeId}/${user.id}`).then(res => {
+            if (res.data === false){
+                console.log('error')
+            }
+            else{
+                navigate('/')
+            }
+        })
+    }
+
 
     async function checkAdmin (){
         let user = JSON.parse(localStorage.getItem('userInfo'))
-        let result = await api.get(`/isAdmin/${user.id}/${groupeId}`)
+        let result = await api.get(`user/isAdmin/${user.id}/${groupeId}`)
         setAdmin(result.data)
     }
     checkAdmin()
@@ -71,6 +83,7 @@ function GroupeHeader(props) {
                                     <Link className="button-81" to={`/groupe/chat/${groupeId}`}>Chat</Link>
                                     <Link className="button-81" to={`/createPost/${groupeId}`}>Post</Link>
                                     <Link className="button-81" to={`/groupeVoyages/${groupeId}`}>Join Trip</Link>
+                                    <button className="button-81" onClick={quitterGroupe}>Quitter groupe</button>
                                     <button className={'button-81'} onClick={logout}>Logout</button>
                                 </>
                         }

@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {CancelDemande, CheckMember} from "./Utilities/GroupeUtilities";
 import {Button} from "react-bootstrap";
 import axios from "axios";
+import '../css/SignUp.css'
+import {Link} from "react-router-dom";
+
 
 
 const api = axios.create({
@@ -41,12 +44,11 @@ function Groupe(groupe) {
     function groupeButton(groupe){
         let user = JSON.parse(localStorage.getItem('userInfo'))
         if (memberships && CheckMember(groupe, memberships)){
-            return <Button className="button-81" href={`/groupe/home/${groupe.id}`} >Acceder</Button>
+            return <Link  to={`/groupe/home/${groupe.id}`}><button className="button-81">Access</button></Link>
         }
         if (demandes && CheckMember(groupe, demandes))
-            return <Button value={groupe.id} className="button-81" onClick={() => {handleCancel(user.id, groupe.id)}}>Annuler</Button>
-
-        return <Button value={groupe.id} className="button-81" href={`/joinGroupe/${groupe.id}`}>Rejoindre</Button>
+            return <button value={groupe.id} className="button-81" onClick={() => {handleCancel(user.id, groupe.id)}}>Cancel</button>
+        return <Link  to={`/joinGroupe/${groupe.id}`}><button className="button-81">Join</button></Link>
     }
     let handleCancel = (userId, groupeId) => {
         CancelDemande(userId, groupeId).then(() => {

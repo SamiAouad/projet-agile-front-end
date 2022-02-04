@@ -19,7 +19,7 @@ function Sidebar({groupeId}) {
                     <ul className='nav-menu-items'>
                         <li className='navbar-toggle'>
                             <Link to={`/groupe/home/${groupeId}`} className='navbar-brand'>
-                                <img src={logo}/>
+                                <img className={'navbar-brand'} src={logo}/>
                             </Link>
                         </li>
                         <li className={"nav-text"}>
@@ -47,9 +47,9 @@ function Sidebar({groupeId}) {
                             </Link>
                         </li>
                         <li className={"nav-text"}>
-                            <Link to={`/groupe/admin/update/${groupeId}`}>
-                                <IoIcons.IoIosSettings />
-                                <span>Settings</span>
+                            <Link to={`/createTrip/${groupeId}`}>
+                                <IoIcons.IoIosAddCircleOutline/>
+                                <span>Create trip</span>
                             </Link>
                         </li>
                     </ul>

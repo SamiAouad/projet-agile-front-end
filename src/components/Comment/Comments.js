@@ -56,8 +56,7 @@ function Comments(props) {
 
     const formik = useFormik({
         initialValues: {
-            title: '',
-            groupeDescription: ''
+            contenu: ''
         },
         onSubmit,
         validationSchema
@@ -130,7 +129,6 @@ function Comments(props) {
                             </ul>
                             <form onSubmit={formik.handleSubmit}>
                                 <textarea name="contenu" value={formik.values.contenu} onChange={formik.handleChange} placeholder='contenu' className='form-control' />
-                                {formik.errors.contenu ? <div className='text-danger'>{formik.errors.groupeDescription}</div> : null}
                                 <br />
                                 <button type="submit" className='button-81'>comment</button>
                             </form>
