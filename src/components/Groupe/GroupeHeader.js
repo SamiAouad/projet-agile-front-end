@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Container, Nav, Navbar, Dropdown} from "react-bootstrap";
 import {useNavigate} from "react-router";
 import axios from "axios";
@@ -15,8 +15,14 @@ function GroupeHeader(props) {
     const params = useParams()
     const navigate = useNavigate();
     let [admin, setAdmin] = useState(false)
+    const [image, setImage] = useState() ;
     let id = props.id
     let groupeId = params.groupeId
+
+    useEffect(() => {
+        if(localStorage.getItem('userInfo'))
+            setImage(JSON.parse(localStorage.getItem('userInfo')).image)
+    },[])
 
     function quitterGroupe(){
         let user = JSON.parse(localStorage.getItem('userInfo'))
@@ -71,21 +77,23 @@ function GroupeHeader(props) {
                                         <Button className="dropdown-item" onClick={logout}>Log out</Button>
                                     </div>
                                 </div>*/
-                                <>
+                                <div className={'myNavbar'}>
                                     <Link className="button-81" to={`/groupe/chat/${groupeId}`}>Chat</Link>
                                     <Link className="button-81" to={`/createPost/${groupeId}`}>Post</Link>
                                     <Link className="button-81" to={`/groupeVoyages/${groupeId}`}>Join Trip</Link>
                                     <Link className="button-81" to={`/groupe/admin/users/${groupeId}`}>Dashboard</Link>
                                     <button className={'button-81'} onClick={logout}>Logout</button>
-                                </>
+                                    <Navbar.Brand  href="/"><img src={`data:image/png;base64, ${image}`} alt='' className='navbar-brand rounded-circle'/></Navbar.Brand>
+                                </div>
                                 :
-                                <>
+                                <div className={'myNavbar'}>
                                     <Link className="button-81" to={`/groupe/chat/${groupeId}`}>Chat</Link>
                                     <Link className="button-81" to={`/createPost/${groupeId}`}>Post</Link>
                                     <Link className="button-81" to={`/groupeVoyages/${groupeId}`}>Join Trip</Link>
                                     <button className="button-81" onClick={quitterGroupe}>Quitter groupe</button>
                                     <button className={'button-81'} onClick={logout}>Logout</button>
-                                </>
+                                    <Navbar.Brand  href="/"><img src={`data:image/png;base64, ${image}`} alt='' className='navbar-brand rounded-circle'/></Navbar.Brand>
+                                </div>
                         }
                     </Nav>
                 </Container>

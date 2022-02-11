@@ -37,7 +37,7 @@ function App() {
           <Route path='/groupe/home/:groupeId' element={<GroupeHome/>} exact/>
           <Route path='/joinGroupe/:groupeId' element={<DemandeGroupe/>} exact/>
           <Route path='/createPost/:id' element={<CreatePost/>}/>
-          <Route path='/posteCommentaire/:posteId' element={<Comments/>}/>
+          <Route path='/posteCommentaire/:groupeId/:posteId' element={<Comments/>}/>
           <Route path='/groupeVoyages/:groupeId' element={<VoyageGroupe/>}/>
           <Route path={'/groupe/admin/users/:groupeId'} element={<AdminUser/>}/>
           <Route path={'/groupe/admin/demandes/:groupeId'} element={<AdminDemandeGroupe/>}/>

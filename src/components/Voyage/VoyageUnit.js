@@ -42,11 +42,22 @@ function VoyageUnit({voyage, joined, demandes}) {
         })
     }
 
+    function deleteVoyageur(){
+        api.delete(`voyage/deleteVoyageMember/${userId}/${voyage.id}`).then(res => {
+            if (res === false){
+                console.log('an error has occured')
+            }
+            else{
+                window.location.reload(true)
+            }
+        })
+    }
+
     function rejoindreButton(voyage) {
         let button = <button className="button-81" onClick={() => ajouterDemande(voyage)}>Join</button>
         joined.map(v => {
             if (voyage.id === v.voyageId){
-                button = <button className="button-81" href='#detailVoyage'>Quitter</button>
+                button = <button className="button-81" onClick={deleteVoyageur}>Quit</button>
             }
         })
         demandes.map(v => {

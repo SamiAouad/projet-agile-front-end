@@ -175,7 +175,7 @@ function SignUp(){
                                         {formik.errors.passwordconf ? <div className="text-danger">{formik.errors.passwordconf}</div> : null}
                                     </div>
                                     <div className={'form-group'}>
-                                        <input type='file' id='file' accept="jpg" onChange={e => {
+                                        <input type='file' id='file' accept="image/png" onChange={e => {
                                             setFile(e.target.files[0]);
                                             setImage(URL.createObjectURL(e.target.files[0]))
                                         }}></input>

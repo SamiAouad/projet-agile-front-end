@@ -56,7 +56,7 @@ export default function Post({poste}) {
               <div className="postcard__preview-txt">{poste.content}</div>
               <ul className="postcard__tagbox">
                 <li className="tag__item play blue">
-                  <a href={`/posteCommentaire/${poste.id}`}><i className="fas fa-play mr-2"></i>Comments</a>
+                  <a href={`/posteCommentaire/${poste.groupeId}/${poste.id}`}><i className="fas fa-play mr-2"></i>Comments</a>
                 </li>
               </ul>
             </div>
